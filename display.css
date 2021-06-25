@@ -1,0 +1,150 @@
+﻿body {
+    color: #ffffff;
+    background-color: #131313; 
+    font-family: 'Abel';
+    font-size: 16px;
+}
+
+html {
+    overflow:hidden;
+}
+
+.portrait {
+    max-width: 250px;
+    max-height: 250px;  
+    border-top-left-radius: 50% 50%;
+    border-top-right-radius: 50% 50%;
+    border-bottom-right-radius: 50% 50%;
+    border-bottom-left-radius: 50% 50%;    
+}
+
+.container {
+    animation: slideInUp; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 0.5s; /* don't forget to set a duration! */
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    margin-top: -250px;
+    margin-left: -100px;
+}
+
+.centerpanel {
+    opacity: 0.8;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    transition: all .2s ease-in-out;
+}
+
+.centerpanel:hover {
+    opacity: 1.0;
+    transform: scale(1.03);
+}
+
+.codelogo {
+    display: flex;
+    justify-content: center;  
+}
+
+.codelogo img {
+    max-width: 250px;
+    max-height: 250px; 
+
+    -moz-animation: blink normal 2s infinite ease-in-out; /* Firefox */
+    -webkit-animation: blink normal 2s infinite ease-in-out; /* Webkit */
+    -ms-animation: blink normal 2s infinite ease-in-out; /* IE */
+    animation: blink normal 2s infinite ease-in-out; /* Opera and prob css3 final iteration */
+}
+
+.icons { 
+    font-size: 3em;    
+    margin-bottom: 300px;
+    display: flex;
+    justify-content: center;   
+}
+
+.fa {
+    margin-left: 12px;
+    margin-right: 12px;
+    color: white;
+    text-decoration: none;
+    border-top-left-radius: 50% 50%;
+    border-top-right-radius: 50% 50%;
+    border-bottom-right-radius: 50% 50%;
+    border-bottom-left-radius: 50% 50%;  
+    transition: all .2s ease-in-out;
+}
+
+.fa:hover {
+    transform: scale(1.1);
+}
+
+.mainpanel {
+    animation: slideInUp; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 0.5s; /* don't forget to set a duration! */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.idolshowdown, .tanjutales, .holocenter {
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 440px;
+}
+
+.idolshowdown iframe, .tanjutales img , .holocenter img{
+    max-width: 600px;
+    max-height: 600px; 
+}
+
+@-moz-keyframes blink {
+    0% {
+        opacity:1;
+    }
+    50% {
+        opacity:0.5;
+    }
+    100% {
+        opacity:1;
+    }
+} 
+
+@-webkit-keyframes blink {
+    0% {
+        opacity:1;
+    }
+    50% {
+        opacity:0.5;
+    }
+    100% {
+        opacity:1;
+    }
+}
+/* IE */
+@-ms-keyframes blink {
+    0% {
+        opacity:1;
+    }
+    50% {
+        opacity:0.5;
+    }
+    100% {
+        opacity:1;
+    }
+} 
+/* Opera and prob css3 final iteration */
+@keyframes blink {
+    0% {
+        opacity:1;
+    }
+    50% {
+        opacity:0.5;
+    }
+    100% {
+        opacity:1;
+    }
+} 
+
