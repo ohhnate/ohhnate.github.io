@@ -100,7 +100,7 @@ body {
     grid-column: 2;
     grid-row: 2;
     border-radius: 50%;
-    box-shadow: 8px -8px  rgba(0,0,0,0.5);
+    box-shadow: 12px -12px  rgba(0,0,0,0.5);
     transition: all .3s ease-in;
 }
 
