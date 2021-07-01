@@ -10,6 +10,10 @@ body {
     color: white;
 }
 
+.pagetitle {
+    text-align: center;
+}
+
 /* index page items */
 .wrapperI {
     overflow:hidden;
@@ -170,6 +174,10 @@ body {
     justify-items: center; 
 }
 
+.projecttitle {
+    text-align: center;
+}
+
 .idolshowdown iframe, .tanjutales img , .holocenter img{
     height: 315px; 
     width: 620px; 
@@ -262,7 +270,7 @@ body {
 } 
 
 /* mobile changes */
-@media only screen and (max-width: 1440px) {   
+@media only screen and (max-width: 1440px) {  
     .codelogo {
         grid-row: 6;
     }
