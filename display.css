@@ -3,6 +3,7 @@
 body {
     background: #000000 url("images/background.png");
     background-size: cover;
+    height: 100vh;
     overflow-x: hidden;
     font-family: 'eurofurence', sans-serif;
     font-size: 1em;
@@ -233,6 +234,7 @@ body {
         opacity:1;
     }
 }
+
 /* IE */
 @-ms-keyframes blink {
     0% {
