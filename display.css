@@ -4,7 +4,7 @@ body {
     background: #000000 url("images/background.png");
     background-size: cover;
     height: 100vh;
-    overflow-x: hidden;
+    overflow: hidden;
     font-family: 'eurofurence', sans-serif;
     font-size: 1em;
     color: white;
@@ -12,6 +12,7 @@ body {
 
 /* index page items */
 .wrapperI {
+    overflow:hidden;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
@@ -284,6 +285,9 @@ body {
 
 /* PROJECT mobile changes */
 @media only screen and (max-width: 1800px) {  
+    body {
+        overflow-y: visible;
+    }
     .holocenter {
         grid-column: 2;
         grid-row: 1;
