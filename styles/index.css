@@ -330,6 +330,10 @@ footer p {
         padding-top: 15%;
     }
     
+    #about p {
+        width: 70%;
+    }
+    
     #technologies {
         width: 80%;
         font-size: 0.7em;
