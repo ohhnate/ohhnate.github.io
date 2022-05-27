@@ -1,0 +1,308 @@
+@font-face {
+    font-family: CyberwayRiders;
+    src:url("/fonts/CyberwayRiders-lg97d.ttf");
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #261C2C;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Poppins, sans-serif;
+    color: #F8F8FF;
+}
+
+::selection {
+  background: #6E85B2; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #6E85B2; /* Gecko Browsers */
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+a:link, a:visited {
+    color: #F8F8FF;
+    text-decoration: none;
+}
+
+nav {
+    margin-bottom: 50px;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+}
+
+nav ul {    
+    list-style-type: none;
+    box-shadow: 0 4px 20px -2px black;
+    text-align: center;
+    background-color: #3E2C41;
+    margin: auto;
+}
+
+nav li {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+nav a {
+    font-size: 1em;
+    font-family: Poppins;
+}
+
+/* mouse over link */
+nav a:hover {
+    color: #6E85B2; 
+}
+
+/* draw nav bottom border from center */
+nav a::after {
+    content: '';  
+    display: block;  
+    margin: auto; 
+    margin-top: 7px;
+    height: 2px;  
+    width: 0px;  
+    background: #6E85B2;  
+    transition: all 0.2s linear;  
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+header {
+    margin: auto;
+    width: 50%;
+    text-align: center;   
+}
+
+header h1 {
+    margin: auto;
+    font-size: 3em;
+    font-weight: 100;
+}
+
+header h2 {
+    font-size: 1em;
+    padding-bottom: 15px;
+}
+
+header::after {
+    content: '';  
+    display: block;  
+    margin: auto; 
+    margin-top: 7px;
+    height: 2px;  
+    width: 0px;  
+    background: #6E85B2;  
+    transition: all 0.2s linear; 
+}
+
+header:hover::after {
+    width: 50%;
+}
+
+#home, #about, #projects, #contact {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#profilePic {
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px #6E85B2;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+main h1 {
+    font-family: Raleway, sans-serif;
+    font-weight: bold;
+}
+
+main p {
+    font-weight: 300;
+    color: lightgray
+}
+
+#home {
+    
+}
+
+#about {
+    border-top: 5px dotted #5C527F;
+}
+
+#about h1, #about p {
+    margin: 5px;
+}
+
+#about h1::after {
+    content: '';  
+    display: block;  
+    margin: auto; 
+    margin-top: 7px;
+    height: 2px;  
+    width: 0px;  
+    background: #6E85B2;  
+    transition: all 0.2s linear;
+}
+
+#about h1:hover::after{
+    width: 100%;
+}
+
+#about p {
+    width: 30%;
+}
+
+#firstWord {
+    margin-right: 5px;
+    font-family: CyberwayRiders;
+    font-size: 3em;
+    font-kerning: none;
+}
+
+#technologies {
+    margin-top: 40px;
+    width: 50%;
+    display: flex;
+}
+
+#technologies p {
+    font-size: 0.85em;
+    font-style: italic;
+    margin-bottom: auto;
+    margin-top: auto;
+    margin-left: 10px;
+    width: 100%;
+}
+
+#projects {
+    border-top: 5px dotted #5C527F;
+}
+
+#projects h1, #projects p {
+    margin: 5px;
+}
+
+#projects h1::after {
+    content: '';  
+    display: block;  
+    margin: auto; 
+    height: 2px;  
+    width: 0px;  
+    background: #6E85B2;  
+    transition: all 0.2s linear;
+}
+
+#projects h1:hover::after {
+    width: 100%;
+}
+
+#project-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#project {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #6E85B2;
+    background-color: #3E2C41;
+    box-shadow: 0 4px 12px -2px #6E85B2;
+}
+
+#project h3 {
+    margin: 0;
+}
+
+#project p {
+    margin: 0;
+    font-style: italic;
+    font-size: 0.8em;
+}
+
+.project-image {
+    margin: auto;
+    height: 272px;
+    width: 480px;
+}
+
+#contact {
+    border-top: 5px dotted #5C527F;
+}
+
+#contact h1, #contact p {
+    margin: 5px;
+}
+
+#contact h1::after {
+    content: '';  
+    display: block;  
+    margin: auto; 
+    margin-top: 7px;
+    height: 2px;  
+    width: 0px;  
+    background: #6E85B2;  
+    transition: all 0.2s linear;
+}
+
+#contact h1:hover::after {
+    width: 100%;
+}
+
+#twitterIcon, #githubIcon, #linkedinIcon, #emailIcon {
+    opacity: 0.7; 
+    margin: 10px;
+    filter: saturate(500%) contrast(800%) brightness(500%) 
+      invert(80%) sepia(50%) hue-rotate(120deg);
+}
+
+#twitterIcon:hover, #githubIcon:hover, #linkedinIcon:hover, #emailIcon:hover {
+    opacity: 0.5; 
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #3E2C41;
+    box-shadow: 0 4px 20px -2px black;
+}
+
+footer p {
+    font-size: 0.7em;
+    font-weight: 300;
+    opacity: 0.6;
+}
+
+#upArrow {
+    opacity: 0.5;
+    padding-bottom: 15px;
+}
+
+#upArrow:hover {
+    opacity: 0.4;
+}
