@@ -1,36 +1,83 @@
-﻿<!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
     <head>
-        <link rel="stylesheet" href="display.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-        <link href="http://fonts.cdnfonts.com/css/eurofurence" rel="stylesheet">
-        <link rel="icon" href="images/favicon.ico">
-   
-        <meta charset="utf-8">
-        <title>Nate's Portfolio</title>
+        <meta charset="UTF-8">
+        <title>Samuel Nate Fuller</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="stylesheet" href="styles/index.css">
+        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>     
+        <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+        <script src="scripts/stickynav.js"></script>
     </head>
     <body>
-        <h1 class="pagetitle">Nate</h1>
-        <div class="wrapperI animate__animated animate__slideInLeft animate__faster">
-            <!--<div class="bio">
-                <p class="biotext"> Hi, I'm <span class="name"><strong>Nate!</strong></span> I am a <span class="gamedev"><strong>Game Developer</strong></span>,
-                <span class="webdev"><strong>Web Developer</strong></span>, and <span class="swe"><strong>Software Engineer</strong></span>. If you would like to contact me for my work, resumes, collabs etc
-                feel free to reach out to me on my email at: <span class="email"><strong>ohhnate@gmail.com</strong></span> or via my twitter account.</p>
-            </div>-->
-            <div class="portrait">
-                <img src="images/me.png" alt="My Portrait" title="Nate :)" width="250" height="250">
-            </div>
-            <div class="icons">
-                <a href="https://twitter.com/reallymenate" alt="twitter" class="fa fa-twitter"></a>
-                <a href="https://github.com/ohhnate" alt="github" class="fa fa-github"></a>
-                <a href="#" class="fa fa-linkedin" alt="linkedin"></a>
-                <a href="mailto:ohhnate@gmail.com" alt="email" class="fa fa-envelope"></a>
-            </div>
-            <div class="pagechangerI">
-                <a href="projects.html"><img src="images/codelogo.png" alt="Code Logo" width="188" height="51"></a>
-            </div>
+        <div class="container">
+            <nav id="navbar">
+                <ul>
+                    <li><a href=#home>Home</a></li>
+                    <li><a href=#about>About</a></li>
+                    <li><a href=#projects>Projects</a></li>
+                    <li><a href=#contact>Contact</a></li>
+                </ul>
+            </nav>
+            <section id="home">
+                <header>
+                    <h1>SAMUEL NATE FULLER</h1>          
+                    <h2>Game Developer ║ Web Developer ║ Software Engineer</h2>
+                    <img id=profilePic src="images/me.png" alt="Nate profile pic" title="Nate :)">
+                </header>
+            </section>
+            <main>
+                <section id="about">
+                    <h1>ABOUT</h1>
+                    <p><span id="firstWord">Hi!</span> My name is Nate. I am a software developer that favors making games!
+                    I typically use the Unity engine for game development but I can manage with essentially all the main stream engines.</p>
+                    <p>Along with making games I also enjoy doing full-stack web development with a stronger back-end background. I have made several websites, including this one, some of which are included in the projects section.</p>
+                    <p>Keeping the visually fancy game making and web applications in mind, I am primarily just a software engineer by trade. I have dabbled with many different technologies but I will list the more popular ones below.</p>
+                    <p>In addition to my technical background, I really enjoy music and playing guitar. I'm a guy who can appreciate all genres out there and I hope to increase my musical repetoir when it comes to listening and creating in the near future.</p>
+                    <p>Feel free to message or email me if you have any questions or would like to collborate! I am always looking for new networking opportunities.</p>
+                    <span id="technologies"><h3>Tecnologies:</h3><p>C#, C++, Go, Python, Unity Engine, ECS, Mirror, Godot, HTML5, CSS, DJANGO,
+                        REDIS, Google Cloud, AWS, Git, Android Studio</p></span>
+                </section>
+                
+                <section id="projects">
+                    <h1>PROJECTS</h1>
+                    <p>Games, Web apps, and other software I have worked on</p>
+                    <div id="project-list">
+                        <div id="project">
+                            <a href="https://holocentertv.herokuapp.com/" target="_blank"><img class="project-image" src="images/holocenter.png" alt="holocenter pic" title="Holocenter"></a>
+                            <h3>Holocenter</h3>
+                            <p>Streaming Web APP</p>
+                        </div>
+                        <div id="project">
+                            <a href="https://tanjutales.com/" target="_blank"><img class="project-image" src="images/tanjutalesdnd.png" alt="tanju tales pic" title="Tanju Tales"></a>
+                            <h3>Tanju Tales</h3>
+                            <p>D&D Blog Website</p>
+                        </div>
+                        <div id="project">
+                            <iframe class="project-image" width="560" height="315" src="https://www.youtube-nocookie.com/embed/2WF302psTRg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <h3><a href="https://twitter.com/IdolShowdown" target="_blank">Idol Showdown</a></h3>
+                            <p>2D Hololive-based fighting game</p>
+                        </div>  
+                    </div>   
+                </section>               
+                <section id="contact">
+                    <h1>CONTACT</h1>
+                    <div id="icons">
+                        <a href="https://twitter.com/ReallyMeNate" target="_blank"><img id=twitterIcon src="images/twitterIcon.png" alt="Twitter Icon" title="@ReallyMeNate" width="64"></a>
+                        <a href="https://github.com/ohhnate" target="_blank"><img id=githubIcon src="images/githubIcon.png" alt="Github Icon" title="github.com/ohhnate" width="64"></a>
+                        <a href="https://www.linkedin.com/in/samuel-fuller1/" target="_blank"><img id=linkedinIcon src="images/linkedinIcon.png" alt="Linkedin Icon" title="linkedin.com/in/samuel-fuller1" width="64"></a>
+                        <a href="mailto: ohhnate@gmail.com" target="_blank"><img id=emailIcon src="images/emailIcon.png" alt="Email Icon" title="ohhnate@gmail.com" width="64"></a>
+                    </div>
+                    <p>For business inquiries or Resume requests please email or contact me on social media</p>
+                </section>         
+            </main>           
+            <footer>
+                <p>&copy; 2022 Samuel Fuller</p>
+                <a href="#home"><img id=upArrow src="images/upArrow.png" alt="Return Arrow" title="Return Arrow" width="64"></a>
+            </footer>
         </div>
     </body>
-</html>
+</html> 
