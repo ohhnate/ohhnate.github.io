@@ -302,15 +302,13 @@ footer p {
     opacity: 0.4;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 900px) {
     header {
         width: 80%;
     }
-    
     header h1 {
         font-size: 2em;
     }
-    
     header h2, header h3, header p {
         font-size: 0.8em;
     }
@@ -354,8 +352,12 @@ footer p {
     }
 }
 
-@media only screen and (max-width: 1440px) {
+@media only screen and (max-width: 1500px) {
     #about, #projects {
         padding-top: 5%;
         padding-bottom: 5%;
+    }
+        header h1 {
+        font-size: 3em;
+    }
 }
