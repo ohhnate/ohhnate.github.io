@@ -36,7 +36,6 @@ a:link, a:visited {
 }
 
 nav {
-    margin-bottom: 50px;
     position: fixed; /* Set the navbar to fixed position */
     top: 0; /* Position the navbar at the top of the page */
     width: 100%; /* Full width */
@@ -91,7 +90,7 @@ header {
 
 header h1 {
     margin: auto;
-    font-size: 3em;
+    font-size: 5em;
     font-weight: 100;
 }
 
@@ -139,10 +138,6 @@ main h1 {
 main p {
     font-weight: 300;
     color: lightgray
-}
-
-#home {
-    
 }
 
 #about {
@@ -327,7 +322,7 @@ footer p {
     }
     
     #about, #projects {
-        padding-top: 15%;
+        padding-top: 5%;
     }
     
     #about p {
@@ -357,4 +352,10 @@ footer p {
     footer img {
         width: 32px;
     }
+}
+
+@media only screen and (max-width: 1440px) {
+    #about, #projects {
+        padding-top: 5%;
+        padding-bottom: 5%;
 }
