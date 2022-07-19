@@ -345,11 +345,7 @@ footer p {
     
     #contact p {
         width: 70%;
-    }
-    
-    footer img {
-        width: 32px;
-    }
+    }    
 }
 
 @media only screen and (max-width: 1500px) {
