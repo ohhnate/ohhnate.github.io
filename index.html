@@ -27,11 +27,18 @@ please feel free to email me or contact me on social media!
           gtag('config', 'G-7M1MKR00KE');
         </script>
 -->
+        <!-- css refs -->
         <link rel="stylesheet" href="styles/index.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
+
+        <!-- fonts -->
         <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"/>
         <link rel="preconnect" href="https://fonts.googleapis.com"/>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-        <link rel='preload' href='http://fonts.googleapis.com/css?family=Open+Sans&display=swap' as="style" onload="this.onload=null;this.rel='stylesheet'"/>
+        <link rel="preload" href='http://fonts.googleapis.com/css?family=Open+Sans&display=swap' as="style" onload="this.onload=null;this.rel='stylesheet'"/>
+
+        <!-- scripts -->
         <noscript>
             <link href='http://fonts.googleapis.com/css?family=Open+Sans&display=swap' rel="stylesheet" type="text/css"/>
         </noscript>
@@ -40,6 +47,7 @@ please feel free to email me or contact me on social media!
             <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet" type="text/css"/>
         </noscript>
         <script src="scripts/stickynav.js"></script>
+   
         
         <title>Samuel Nate Fuller</title>
     </head>
@@ -58,8 +66,8 @@ please feel free to email me or contact me on social media!
                     <h1>SAMUEL NATE FULLER</h1>          
                     <h2>Game Developer ║ Web Developer ║ Software Engineer</h2>
                     <picture>
-                        <source type="image/webp" srcset="images/webp/meMagick.webp">
-                        <img id=profilePic src="images/meMagick.png" alt="Nate profile pic" title="Nate :)">
+                        <source type="image/webp" srcset="images/webp/chibiavi.webp">
+                        <img id=profilePic src="images/chibiavi.png" alt="Nate profile pic" title="Nate :)">
                     </picture>
                     
                 </header>
@@ -67,27 +75,91 @@ please feel free to email me or contact me on social media!
             <main>
                 <section id="about">
                     <h1>ABOUT</h1>
-                    <p><span id="firstWord">S...Hi!</span> My name is Nate. I am a software developer that favors making games!
-                    I typically use the Unity engine for game development but I can manage with essentially all the main stream engines.</p>
-                    <p>Along with making games I also enjoy doing full-stack web development with a stronger back-end background. I have made several websites, including this one, some of which are included in the projects section.</p>
-                    <p>Keeping the visually fancy game making and web applications in mind, I am primarily just a software engineer by trade. I have dabbled with many different technologies but I will list the more popular ones below.</p>
-                    <p>In addition to my technical background, I really enjoy music and playing guitar. I'm a guy who can appreciate all genres out there and I hope to increase my musical repertoire when it comes to listening and creating in the near future.</p>
+                    <p><span id="firstWord">Hi!</span> My name is Nate. I am a software developer that favors making games!
+                    I typically use the Unity engine for game development but I can manage with most main stream engines.</p>
+                    <p>Along with making games I also enjoy doing full-stack web development with the most experience coming from the back-end. I have made several different webapps and software, some of which are included in the projects section.</p>
+                    <p>I am primarily just a software engineer by trade. I have dabbled with many different technologies and I will list the more popular ones below.</p>
+                    <p>In addition to my technical background, I really enjoy music and playing guitar.</p>
                     <p>Feel free to message or email me if you have any questions or would like to collaborate! I am always looking for new networking opportunities.</p>
                     <span id="technologies"><h3>Technologies:</h3><p>C#, C++, Go, Python, Unity Engine, ECS, Mirror, Godot, HTML5, CSS, DJANGO,
                         REDIS, Google Cloud, AWS, Git, Android Studio</p></span>
-                </section>
+                </section>                            
                 
                 <section id="projects">
-                    <h1>PROJECTS</h1>
-                    <p>Games, Web apps, and other software I have worked on</p>
-                    <div id="project-list">
+                     
+                    <div class="contain">
+                        <h1>PROJECTS</h1>
+                        <p>Games, Web apps, and other software I have worked on</p> 
+                        <div class="row">
+                          <div class="row__inner">
+                            <div class="tile">
+                              <div class="tile__media">
+                                <iframe class="tile__img" src="https://itch.io/embed/1729942?bg_color=3E2C41&amp;fg_color=F8F8FF&amp;link_color=6E85B2&amp;border_color=6E85B2" 
+                                frameborder="0"><a href="https://ohhnate.itch.io/carrot-catcher"></a></iframe>
+                                <div class=tile__desc>
+                                  <h1>Carrot Catcher</h1>
+                                  <p>Simple Bunny Puzzle Game</p>
+                                </div>
+                              </div>
+                            </div>                          
+                            <div class="tile">
+                                <div class="tile__media">
+                                    <iframe class="tile__img" src="https://www.youtube-nocookie.com/embed/2WF302psTRg" loading="lazy" title="YouTube video player" 
+                                    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <div class=tile__desc>
+                                        <h1>Idol Showdown</h1>
+                                        <p>2D Hololive-based fighting game</p>
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="tile">
+                                <div class="tile__media">
+                                    <a href="https://holocentertv.herokuapp.com/" target="_blank">
+                                        <picture>
+                                            <source type="image/webp" srcset="images/webp/holocenterMagick.webp">
+                                            <img class="tile__img" src="images/holocenterMagick.png" alt="holocenter pic" title="Holocenter">
+                                        </picture>
+                                    </a>
+                                    <div class=tile__desc>
+                                        <h1>Holocenter</h1>
+                                        <p>Hololive streaming web app</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tile">
+                              <div class="tile__media">
+                                <a href="https://tanjutales.com/" target="_blank">
+                                    <picture>
+                                        <source type="image/webp" srcset="images/webp/tanjutalesdndMagick.webp">
+                                        <img class="tile__img" src="images/tanjutalesdndMagick.png" alt="tanju tales pic" title="Tanju Tales">
+                                    </picture>     
+                                </a>
+                                <div class=tile__desc>
+                                  <h1>Tanju Tales</h1>
+                                  <p>D&D Blog Website</p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="tile">
+                                <div class="tile__media">
+                                    <iframe class="tile__img" src="https://itch.io/embed/1720314?bg_color=3E2C41&amp;fg_color=F8F8FF&amp;link_color=6E85B2&amp;border_color=6E85B2" 
+                                    frameborder="0"><a href="https://ohhnate.itch.io/pongers">Pongers by Nate</a></iframe>
+                                    <div class=tile__desc>
+                                        <h1>Pongers</h1>
+                                        <p>A game of pong</p>
+                                    </div>
+                                </div>
+                            </div>      
+                          </div>
+                        </div>
+                      </div>   
+                    <!-- <div id="project-list">
                         <div id="project">
                             <a href="https://holocentertv.herokuapp.com/" target="_blank">
                                 <picture>
                                     <source type="image/webp" srcset="images/webp/holocenterMagick.webp">
                                     <img class="project-image" src="images/holocenterMagick.png" alt="holocenter pic" title="Holocenter">
                                 </picture>
-
                             </a>
                             <h3>Holocenter</h3>
                             <p>Streaming Web APP</p>
@@ -108,8 +180,8 @@ please feel free to email me or contact me on social media!
                             <h3><a href="https://twitter.com/IdolShowdown" target="_blank">Idol Showdown</a></h3>
                             <p>2D Hololive-based fighting game</p>
                         </div>  
-                    </div>   
-                </section>               
+                    </div>    -->
+                </section>                            
                 <section id="contact">
                     <h1>CONTACT</h1>
                     <div id="icons">
@@ -142,6 +214,7 @@ please feel free to email me or contact me on social media!
                 </section>         
             </main>           
             <footer>
+
                 <p>&copy; 2022 Samuel Fuller</p>
                 <a href="#home">
                     <picture>
@@ -149,7 +222,9 @@ please feel free to email me or contact me on social media!
                         <img id=upArrow src="images/upArrowMagick.png" alt="Return Arrow" title="Return Arrow" width="64">
                     </picture>
                 </a>
+                
             </footer>
         </div>
+        <script src="scripts/slider.js"></script>
     </body>
 </html> 
