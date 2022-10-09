@@ -15,10 +15,12 @@
 
 html {
     scroll-behavior: smooth;
+    background-image: url("/images//bgScaled.png");
+    background-attachment: fixed;
 }
 
 body {
-    background-color: #261C2C;
+    background-color:rgba(38, 28, 45, 0.65);
     overflow-x: hidden;
 }
 
@@ -57,8 +59,12 @@ nav ul {
     list-style-type: none;
     box-shadow: 0 4px 20px -2px black;
     text-align: center;
-    background-color: #3E2C41;
+    background-color:rgba(62, 44, 65, 0.6);
     margin: auto;
+}
+
+nav ul:hover {
+    background-color:rgba(62, 44, 65, 1);
 }
 
 nav li {
@@ -248,7 +254,7 @@ main p {
   scrollbar-color: #F8F8FF #3E2C41;
   width: 100%;
   padding-top: 30px;
-  padding-bottom: 75px;
+  padding-bottom: 90px;
 }
 
 .row__inner {
@@ -351,8 +357,12 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #3E2C41;
+    background-color: rgba(62, 44, 65, 0.6);
     box-shadow: 0 4px 20px -2px black;
+}
+
+footer:hover {
+    background-color: rgba(62, 44, 65, 1);
 }
 
 footer p {
