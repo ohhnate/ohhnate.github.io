@@ -1,201 +1,168 @@
 <!DOCTYPE html>
-
-<!--
-Hi I hope you enjoy my websites code. If you have any questions or suggestions
-please feel free to email me or contact me on social media!
--->
-
-<html lang="en">
-    <head>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-        <meta name="keywords" content="Game Developer, Developer, Programmer, Unity, C#, C++,
-                                       Software Engineer, Software, Engineer, Golang, Go, HTML, CSS, Javascript
-                                       Portfolio, Samuel Fuller, Samuel, Nate, Nate Fuller">
-        <meta name="author" content="Samuel Fuller">
-        <meta name="title" content="Samuel Nate Fuller"/>
-        <meta name="description" content="This is the developer porfolio site for Samuel Fuller!"/>
-        <meta property="og:image" content="images/me.png"/>
-        
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-<!--
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-7M1MKR00KE"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-7M1MKR00KE');
-        </script>
--->
-        <!-- css refs -->
-        <link rel="stylesheet" href="styles/index.css"/>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
-
-        <!-- fonts -->
-        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"/>
-        <link rel="preconnect" href="https://fonts.googleapis.com"/>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-        <link rel="preload" href='http://fonts.googleapis.com/css?family=Open+Sans&display=swap' as="style" onload="this.onload=null;this.rel='stylesheet'"/>
-
-        <!-- scripts -->
-        <noscript>
-            <link href='http://fonts.googleapis.com/css?family=Open+Sans&display=swap' rel="stylesheet" type="text/css"/>
-        </noscript>
-        <link rel='preload' href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
-        <noscript>
-            <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet" type="text/css"/>
-        </noscript>
-        <script src="scripts/stickynav.js"></script>
-   
-        
-        <title>Samuel Nate Fuller</title>
-    </head>
-    <body>
-        <div class="container">
-            <nav id="navbar">
-                <ul>
-                    <li><a href=#home>Home</a></li>
-                    <li><a href=#projects>Projects</a></li>
-                    <li><a href=#about>About</a></li>
-                    <li><a href=#contact>Contact</a></li>
-                </ul>
-            </nav>
-            <section id="home">
-                <header>
-                    <h1>SAMUEL NATE FULLER</h1>          
-                    <h2>Game Developer ║ Web Developer ║ Software Engineer</h2>
-                    <picture>
-                        <source type="image/webp" srcset="images/webp/chibiavi.webp">
-                        <img id=profilePic src="images/chibiavi.png" alt="Nate profile pic" title="Nate :)">
-                    </picture>
-                    
-                </header>
-            </section>
-            <main>                            
-                <section id="projects">
-                     
-                    <div class="contain">
-                        <h1>PROJECTS</h1>
-                        <p>Games, Web apps, and other software I have worked on</p> 
-                        <div class="row">
-                          <div class="row__inner">
-                            <div class="tile">
-                              <div class="tile__media">
-                                <iframe class="tile__img" src="https://itch.io/embed/1729942?bg_color=3E2C41&amp;fg_color=F8F8FF&amp;link_color=6E85B2&amp;border_color=6E85B2" 
+<html>
+<!-- Hi Welcome to my portfolio! 
+	I tried to make my website responsive, but it just won't listen to me. 
+	I guess it's not very responsive to my needs... -->
+<head>
+	<title>Samuel Nate Fuller</title>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+	<meta name="keywords" content="Game Developer, Developer, Programmer, Unity, C#, C++,
+									Software Engineer, Software, Engineer, Golang, Go, HTML, CSS, Javascript
+									Portfolio, Samuel Fuller, Samuel, Nate, Nate Fuller">
+	<meta name="author" content="Samuel Fuller">
+	<meta name="title" content="Samuel Nate Fuller"/>
+	<meta name="description" content="This is the developer porfolio site for Samuel Fuller!"/>
+	<meta property="og:image" content="images/me.png"/>
+	<link rel="stylesheet" href="styles/index.css"/>
+	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"/>
+	<link rel="preconnect" href="https://fonts.googleapis.com"/>
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+	<link rel="preload" href='http://fonts.googleapis.com/css?family=Open+Sans&display=swap' as="style" onload="this.onload=null;this.rel='stylesheet'"/>
+</head>
+<body>
+	<nav>
+		<a href="#home">Home</a>
+		<a href="#projects">Projects</a>
+		<a href="#about">About</a>
+		<a href="#contact">Contact</a>
+	</nav>
+	<section id="home">
+		<div class="home-content">
+			<h1>Samuel Nate Fuller</h1>
+			<h3>Game Developer  ║  Software Engineer</h3>
+			<img class="profile-pic" src="images/me.png" alt="Nate :)">
+		</div>
+	</section>
+	<section id="projects">
+		<h1>PROJECTS</h1>
+		<p> Games, Web apps, and other software I have worked on</p>
+		<div class="carousel">
+			<div class="slide">
+				<iframe width="450" height="260" src="https://www.youtube.com/embed/2WF302psTRg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+				<h2>Idol Showdown</h2>
+				<p>2D Multiplayer Fighting Game (Unity)</p>
+		  	</div>
+		  	<div class="slide">
+				<iframe class="tile__img" src="https://itch.io/embed/1729942?bg_color=3E2C41&amp;fg_color=F8F8FF&amp;link_color=6E85B2&amp;border_color=6E85B2" 
                                 frameborder="0"><a href="https://ohhnate.itch.io/carrot-catcher"></a></iframe>
-                                <div class=tile__desc>
-                                  <h1>Carrot Catcher</h1>
-                                  <p>Simple Bunny Puzzle Game</p>
-                                </div>
-                              </div>
-                            </div>                          
-                            <div class="tile">
-                                <div class="tile__media">
-                                    <iframe class="tile__img" src="https://www.youtube-nocookie.com/embed/2WF302psTRg" loading="lazy" title="YouTube video player" 
-                                    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    <div class=tile__desc>
-                                        <h1>Idol Showdown</h1>
-                                        <p>2D Hololive-based fighting game</p>
-                                    </div>
-                                </div> 
-                            </div>
-                            <div class="tile">
-                                <div class="tile__media">
-                                    <a href="https://holocentertv.herokuapp.com/" target="_blank">
-                                        <picture>
-                                            <source type="image/webp" srcset="images/webp/holocenterMagick.webp">
-                                            <img class="tile__img" src="images/holocenterMagick.png" alt="holocenter pic" title="Holocenter">
-                                        </picture>
-                                    </a>
-                                    <div class=tile__desc>
-                                        <h1>Holocenter</h1>
-                                        <p>Hololive streaming web app</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tile">
-                              <div class="tile__media">
-                                <a href="https://tanjutales.com/" target="_blank">
-                                    <picture>
-                                        <source type="image/webp" srcset="images/webp/tanjutalesdndMagick.webp">
-                                        <img class="tile__img" src="images/tanjutalesdndMagick.png" alt="tanju tales pic" title="Tanju Tales">
-                                    </picture>     
-                                </a>
-                                <div class=tile__desc>
-                                  <h1>Tanju Tales</h1>
-                                  <p>D&D Blog Website</p>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="tile">
-                                <div class="tile__media">
-                                    <iframe class="tile__img" src="https://itch.io/embed/1720314?bg_color=3E2C41&amp;fg_color=F8F8FF&amp;link_color=6E85B2&amp;border_color=6E85B2" 
+				<h2>Carrot Catcher</h2>
+				<p>2D Grid Puzzle Game (Unity)</p>
+		  	</div>
+		  	<div class="slide">
+				<img src="images/tanjutalesdnd.png">
+				<h2>Tanju Tales</h2>
+				<p>D&D Blog Site (Wordpress)</p>
+		  	</div>
+			<div class="slide">
+				<img src="images/holocenter.png">
+				<h2>Holocenter</h2>
+				<p>Hololive Livestream Viewer(Heroku)</p>
+		  	</div>
+			<div class="slide">
+				<iframe class="tile__img" src="https://itch.io/embed/1720314?bg_color=3E2C41&amp;fg_color=F8F8FF&amp;link_color=6E85B2&amp;border_color=6E85B2" 
                                     frameborder="0"><a href="https://ohhnate.itch.io/pongers">Pongers by Nate</a></iframe>
-                                    <div class=tile__desc>
-                                        <h1>Pongers</h1>
-                                        <p>A game of pong</p>
-                                    </div>
-                                </div>
-                            </div>      
-                          </div>
-                        </div>
-                      </div>   
-                </section>   
-                <section id="about">
-                    <h1>ABOUT</h1>
-                    <p><span id="firstWord">Hi!</span> My name is Nate. I am a software developer that favors making games!
-                    I typically use the Unity engine for game development but I can manage with most main stream engines.</p>
-                    <p>Along with making games I also enjoy doing full-stack web development with the most experience coming from the back-end. I have made several different webapps and software, some of which are included in the projects section.</p>
-                    <p>I am primarily just a software engineer by trade. I have dabbled with many different technologies and I will list the more popular ones below.</p>
-                    <p>In addition to my technical background, I really enjoy music and playing guitar.</p>
-                    <p>Feel free to message or email me if you have any questions or would like to collaborate! I am always looking for new networking opportunities.</p>
-                    <span id="technologies"><h3>Technologies:</h3><p>C#, C++, Go, Python, Unity Engine, ECS, Mirror, Godot, HTML5, CSS, DJANGO,
-                        REDIS, Google Cloud, AWS, Git, Android Studio</p></span>
-                </section>                         
-                <section id="contact">
-                    <h1>CONTACT</h1>
-                    <div id="icons">
-                        <a href="https://twitter.com/ReallyMeNate" target="_blank">
-                            <picture>
-                                <source type="image/webp" srcset="images/webp/twitterIcon.webp">
-                                <img id=twitterIcon src="images/twitterIcon.png" alt="Twitter Icon" title="@ReallyMeNate" width="64">
-                            </picture>
-                        </a>
-                        <a href="https://github.com/ohhnate" target="_blank">
-                            <picture>
-                                <source type="image/webp" srcset="images/webp/githubIcon.webp">
-                                <img id=githubIcon src="images/githubIcon.png" alt="Github Icon" title="github.com/ohhnate" width="64">
-                            </picture>                    
-                        </a>
-                        <a href="https://www.linkedin.com/in/samuel-fuller1/" target="_blank">
-                            <picture>
-                                <source type="image/webp" srcset="images/webp/linkedinIcon.webp">
-                                <img id=linkedinIcon src="images/linkedinIcon.png" alt="Linkedin Icon" title="linkedin.com/in/samuel-fuller1" width="64">
-                            </picture>              
-                        </a>
-                        <a href="mailto: ohhnate@gmail.com" target="_blank">
-                            <picture>
-                                <source type="image/webp" srcset="images/webp/emailIcon.webp">
-                                <img id=emailIcon src="images/emailIcon.png" alt="Email Icon" title="ohhnate@gmail.com" width="64">
-                            </picture>
-                        </a>
-                    </div>
-                    <p>For business inquiries or Resume requests please email or contact me on social media</p>
-                </section>         
-            </main>           
-            <footer>
-
-                <p>&copy; 2022 Samuel Fuller</p>
-                <a href="#home">
-                    <picture>
-                        <source type="image/webp" srcset="images/webp/upArrowMagick.webp">
-                        <img id=upArrow src="images/upArrowMagick.png" alt="Return Arrow" title="Return Arrow" width="64">
-                    </picture>
-                </a>
-                
-            </footer>
-        </div>
-        <script src="scripts/slider.js"></script>
-    </body>
-</html> 
+				<h2>Pongers</h2>
+				<p>Simple Pong (Unity)</p>
+		  	</div>
+		</div>
+	</section>
+	<section id="about">
+		<h1>Behind the Screen</h1>
+		<div class="about-content">
+		  	<div class="about-text">
+				<p>Hi, I'm Nate, a passionate game developer with expertise in Unity. 
+					I create unique and immersive experiences for players of all backgrounds. 
+					I'm also experienced in full-stack web development, particularly in backend technologies. 
+					I've worked on several webapps and software projects, and I'm always expanding my skillset. 
+					Apart from coding, I'm a dedicated musician who loves playing guitar and exploring different genres of music. 
+					Let's connect and collaborate!
+				</p>
+		  	</div>
+		  	<div class="about-skills">
+				<h2>Skills</h2>
+				<div class="skill-categories">
+				  <div class="skill-category">
+					<h3>Programming Languages</h3>
+					<ul>
+					  <li>C#</li>
+					  <li>C++</li>
+					  <li>Python</li>
+					  <li>Java</li>
+					</ul>
+				  </div>
+				  <div class="skill-category">
+					<h3>Game Engines & Frameworks</h3>
+					<ul>
+					  <li>Unity</li>
+					  <li>Godot</li>
+					  <li>ECS</li>
+					  <li>Mirror</li>
+					</ul>
+				  </div>
+				  <div class="skill-category">
+					<h3>Web Development</h3>
+					<ul>
+					  <li>HTML/CSS</li>
+					  <li>Backend Technologies: .NET Core</li>
+					  <li>JavaScript Frameworks: React</li>
+					  <li>Server-side Frameworks: Django</li>
+					  <li>Databases: MySQL, MongoDB</li>
+					  <li>Cloud Platforms: Google Cloud, Heroku, AWS</li>
+					</ul>
+				  </div>
+				  <div class="skill-category">
+					<h3>Tools & Version Control</h3>
+					<ul>
+					  <li>Git</li>
+					  <li>Ryder, VSCode, Visual Studio</li>
+					  <li>Android Studio</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="contact">
+		<h1>Contact</h1>
+		<div class="contact-icons">
+			<a href="https://twitter.com/ReallyMeNate" target="_blank">
+				<picture>
+					<source type="image/webp" srcset="images/webp/twitterIcon.webp">
+					<img id=twitterIcon src="images/twitterIcon.png" alt="Twitter Icon" title="@ReallyMeNate" width="64">
+				</picture>
+			</a>
+			<a href="https://github.com/ohhnate" target="_blank">
+				<picture>
+					<source type="image/webp" srcset="images/webp/githubIcon.webp">
+					<img id=githubIcon src="images/githubIcon.png" alt="Github Icon" title="github.com/ohhnate" width="64">
+				</picture>
+			</a>
+			<a href="https://www.linkedin.com/in/samuel-fuller1/" target="_blank">
+				<picture>
+					<source type="image/webp" srcset="images/webp/linkedinIcon.webp">
+					<img id=linkedinIcon src="images/linkedinIcon.png" alt="Linkedin Icon" title="linkedin.com/in/samuel-fuller1" width="64">
+				</picture>
+			</a>
+			<a href="mailto: ohhnate@gmail.com" target="_blank">
+				<picture>
+					<source type="image/webp" srcset="images/webp/emailIcon.webp">
+					<img id=emailIcon src="images/emailIcon.png" alt="Email Icon" title="ohhnate@gmail.com" width="64">
+				</picture>
+			</a>
+		</div>
+		<p>If you have any business inquiries, collaboration opportunities, or would like to request my resume, 
+			feel free to reach out to me through email or social media. 
+			I'm always open to new opportunities and look forward to hearing from you!
+		</p>
+	</section>
+	<footer>
+		<p>&copy; 2023 Samuel Fuller</p>
+		<a href="#home">
+			<picture>
+				<source type="image/webp" srcset="images/webp/upArrowMagick.webp">
+				<img id=upArrow src="images/upArrowMagick.png" alt="Return Arrow" title="Return Arrow" width="64">
+			</picture>
+		</a>
+	</footer>
+</body>
+</html>
