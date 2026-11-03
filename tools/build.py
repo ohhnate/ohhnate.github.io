@@ -7,6 +7,7 @@ Template syntax: {{ key }} inserts HTML-escaped text, {{ key | json }} writes a 
 string, and {{ key | raw }} inserts HTML as is. Keys starting with "page." come from
 this script; the rest come from the locale's JSON.
 """
+import hashlib
 import html
 import json
 import re
@@ -102,17 +103,29 @@ def lang_item(other: Locale, current: Locale) -> str:
     )
 
 
-def page_values(loc: Locale, months: int) -> dict[str, str]:
-    lang_items = "\n".join(lang_item(other, loc) for other in LOCALES)
+def asset_version(relative: str) -> str:
+    """A short content hash for an asset URL, so a deploy never pairs new pages with a cached old file."""
+    return hashlib.sha256((ROOT / relative).read_bytes()).hexdigest()[:10]
+
+
+def shared_values(today: date) -> dict[str, str]:
+    """Values that are the same on every page."""
+    return {
+        "page.months": str(meter_months(today)),
+        "page.css_version": asset_version("styles.css"),
+        "page.js_version": asset_version("assets/site.js"),
+        "page.locale_paths": json.dumps(locale_paths(), ensure_ascii=False),
+        "page.hreflang_links": "\n".join(f'\t<link rel="alternate" hreflang="{tag}" href="{url}">' for tag, url in alternate_links()),
+    }
+
+
+def page_values(loc: Locale) -> dict[str, str]:
     return {
         "page.lang": loc.html_lang,
         "page.url": SITE + loc.path,
         "page.og_locale": loc.og_locale,
         "page.lang_name": loc.name,
-        "page.lang_items": lang_items,
-        "page.months": str(months),
-        "page.locale_paths": json.dumps(locale_paths(), ensure_ascii=False),
-        "page.hreflang_links": "\n".join(f'\t<link rel="alternate" hreflang="{tag}" href="{url}">' for tag, url in alternate_links()),
+        "page.lang_items": "\n".join(lang_item(other, loc) for other in LOCALES),
         "page.og_locale_alternates": "\n".join(
             f'\t<meta property="og:locale:alternate" content="{other.og_locale}">' for other in LOCALES if other is not loc
         ),
@@ -154,11 +167,11 @@ def write_sitemap() -> None:
 def main() -> None:
     template = (ROOT / "src" / "index.html").read_text(encoding="utf-8")
     strings = load_strings()
-    months = meter_months(date.today())
+    shared = shared_values(date.today())
     for loc in LOCALES:
         out = ROOT / loc.path.strip("/") / "index.html"
         out.parent.mkdir(parents=True, exist_ok=True)
-        out.write_text(render(template, {**strings[loc.code], **page_values(loc, months)}), encoding="utf-8", newline="\n")
+        out.write_text(render(template, {**strings[loc.code], **shared, **page_values(loc)}), encoding="utf-8", newline="\n")
         print(f"wrote {out.relative_to(ROOT).as_posix()}")
     write_sitemap()
     unused = sorted(set(strings[DEFAULT_CODE]) - {key for key, _ in PLACEHOLDER.findall(template)})

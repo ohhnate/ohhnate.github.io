@@ -12,6 +12,12 @@ It writes `index.html` (English) and one `<locale>/index.html` per language, plu
 
 To preview locally, serve the folder (asset paths are root-relative): `python -m http.server`, then open http://localhost:8000.
 
+The build stamps the stylesheet and script URLs with a content hash (`styles.css?v=…`), so a deploy never pairs new pages with a cached old stylesheet.
+
+## Search engines
+
+After a deploy that changes content, run `python tools/indexnow.py` to notify Bing, Yandex and the other IndexNow engines. It needs the key file at the repo root (the 32-character hex `.txt` file), so keep that file. Google reads `sitemap.xml` through Search Console.
+
 ## Languages
 
 English, Mandarin (Simplified, `/zh-cn/`), Cantonese (Traditional, `/zh-hk/`), Japanese, Spanish, Brazilian Portuguese, German, French and Russian, configured in `LOCALES` in `tools/build.py`.

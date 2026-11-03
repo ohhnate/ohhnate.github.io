@@ -45,8 +45,8 @@
 	<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 	<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 {{ page.preloads | raw }}
-	<link rel="stylesheet" href="/styles.css">
-	<script src="/assets/site.js" defer></script>
+	<link rel="stylesheet" href="/styles.css?v={{ page.css_version }}">
+	<script src="/assets/site.js?v={{ page.js_version }}" defer></script>
 	<script type="application/ld+json">
 	{
 		"@context": "https://schema.org",
