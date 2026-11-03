@@ -1,175 +1,256 @@
 <!DOCTYPE html>
-<html>
-<!-- Hi Welcome to my portfolio! 
-	I tried to make my website responsive, but it just won't listen to me. 
-	I guess it's not very responsive to my needs... -->
+<html lang="en-US">
 <head>
-	<title>Samuel Nate Fuller</title>
-	<meta charset="UTF-8"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-	<meta name="keywords" content="Game Developer, Developer, Programmer, Unity, C#, C++,
-									Software Engineer, Software, Engineer, Golang, Go, HTML, CSS, Javascript
-									Portfolio, Samuel Fuller, Samuel, Nate, Nate Fuller">
-	<meta name="author" content="Samuel Fuller">
-	<meta name="title" content="Samuel Nate Fuller"/>
-	<meta name="description" content="This is the developer porfolio site for Samuel Fuller!"/>
-	<meta property="og:image" content="images/me.png"/>
-	<link rel="stylesheet" href="styles/index.css"/>
-	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"/>
-	<link rel="preconnect" href="https://fonts.googleapis.com"/>
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-	<link rel="preload" href='http://fonts.googleapis.com/css?family=Open+Sans&display=swap' as="style" onload="this.onload=null;this.rel='stylesheet'"/>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Nate Fuller, game systems programmer</title>
+	<meta name="description" content="Nate Fuller builds rollback netcode, deterministic game engines, and input and audio systems. He was a systems programmer on Idol Showdown and now works at AWS.">
+	<meta name="author" content="Nate Fuller">
+	<link rel="canonical" href="https://ohhnate.dev/">
+	<meta name="theme-color" content="#E7E8EF">
+	<meta property="og:type" content="profile">
+	<meta property="og:site_name" content="ohhnate">
+	<meta property="og:url" content="https://ohhnate.dev/">
+	<meta property="og:title" content="Nate Fuller, game systems programmer">
+	<meta property="og:description" content="Rollback netcode, deterministic engines, input and audio.">
+	<meta property="og:image" content="https://ohhnate.dev/assets/og.png">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
+	<meta property="og:image:alt" content="Nate Fuller, game systems programmer, with his career drawn as a frame meter.">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:image:alt" content="Nate Fuller, game systems programmer, with his career drawn as a frame meter.">
+	<link rel="icon" href="favicon.ico" sizes="48x48">
+	<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+	<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+	<link rel="preload" href="assets/fonts/anybody-italic.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="assets/fonts/schibsted-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="stylesheet" href="styles.css">
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "ProfilePage",
+		"mainEntity": {
+			"@type": "Person",
+			"name": "Nate Fuller",
+			"url": "https://ohhnate.dev/",
+			"description": "Game systems programmer who builds rollback netcode, deterministic engines, and input and audio systems.",
+			"sameAs": [
+				"https://github.com/ohhnate",
+				"https://ohhnate.itch.io",
+				"https://www.linkedin.com/in/samuel-fuller1/"
+			]
+		}
+	}
+	</script>
 </head>
 <body>
-	<nav>
-		<a href="#home">Home</a>
-		<a href="#projects">Projects</a>
-		<a href="#about">About</a>
-		<a href="#contact">Contact</a>
-	</nav>
-	<section id="home">
-		<div class="home-content">
-			<h1>Samuel Nate Fuller</h1>
-			<h3>Game Developer  ║  Software Engineer</h3>
-			<img class="profile-pic" src="images/me.png" alt="Nate :)">
-		</div>
-	</section>
-	<section id="projects">
-		<h1>PROJECTS</h1>
-		<p> Games, Web apps, and other software I have worked on</p>
-		<div class="carousel">
-			<div class="slide">
-				<iframe width="450" height="260" src="https://www.youtube.com/embed/lkcTeZyknQg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; 
-				clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-				<h2>Idol Showdown</h2>
-				<p>2D Multiplayer Fighting Game</p>
-		  	</div>
-			<div class="slide">
-				<iframe class="tile__img" src="https://itch.io/embed/2156337?bg_color=3E2C41&amp;fg_color=F8F8FF&amp;link_color=6E85B2&amp;border_color=6E85B2"
-										  frameborder="0"><a href="https://nullctipus.itch.io/lazulightless"></a></iframe>
-				<h2>Lightless</h2>
-				<p>2D Stealth Horror Game</p>
-			</div>
-		  	<div class="slide">
-				<iframe class="tile__img" src="https://itch.io/embed/1729942?bg_color=3E2C41&amp;fg_color=F8F8FF&amp;link_color=6E85B2&amp;border_color=6E85B2" 
-                                          frameborder="0"><a href="https://ohhnate.itch.io/carrot-catcher"></a></iframe>
-				<h2>Carrot Catcher</h2>
-				<p>2D Grid Puzzle Game</p>
-		  	</div>
-		  	<div class="slide">
-				<img src="images/tanjutalesdnd.png">
-				<h2>Tanju Tales</h2>
-				<p>D&D Blog Site</p>
-		  	</div>
-			<div class="slide">
-				<img src="images/holocenter.png">
-				<h2>Holocenter</h2>
-				<p>Hololive Livestream Viewer</p>
-		  	</div>
-			<div class="slide">
-				<iframe class="tile__img" src="https://itch.io/embed/1720314?bg_color=3E2C41&amp;fg_color=F8F8FF&amp;link_color=6E85B2&amp;border_color=6E85B2" 
-                                          frameborder="0"><a href="https://ohhnate.itch.io/pongers">Pongers by Nate</a></iframe>
-				<h2>Pongers</h2>
-				<p>Simple Pong</p>
-		  	</div>
-		</div>
-	</section>
-	<section id="about">
-		<h1>Behind the Screen</h1>
-		<div class="about-content">
-		  	<div class="about-text">
-				<p>Hi, I'm Nate, a passionate game developer with expertise in Unity. 
-					I create unique and immersive experiences for players of all backgrounds. 
-					I'm also experienced in full-stack web development, particularly in backend technologies. 
-					I've worked on several webapps and software projects, and I'm always expanding my skillset. 
-					Apart from coding, I'm a dedicated musician who loves playing guitar and exploring different genres of music. 
-					Let's connect and collaborate!
-				</p>
-		  	</div>
-		  	<div class="about-skills">
-				<h2>Skills</h2>
-				<div class="skill-categories">
-				  <div class="skill-category">
-					<h3>Programming Languages</h3>
-					<ul>
-					  <li>C#</li>
-					  <li>C++</li>
-					  <li>Python</li>
-					  <li>Java</li>
-					</ul>
-				  </div>
-				  <div class="skill-category">
-					<h3>Game Engines & Frameworks</h3>
-					<ul>
-					  <li>Unity</li>
-					  <li>Godot</li>
-					  <li>ECS</li>
-					  <li>Mirror</li>
-					</ul>
-				  </div>
-				  <div class="skill-category">
-					<h3>Web Development</h3>
-					<ul>
-					  <li>HTML/CSS</li>
-					  <li>Backend Technologies: .NET Core</li>
-					  <li>JavaScript Frameworks: React</li>
-					  <li>Server-side Frameworks: Django</li>
-					  <li>Databases: MySQL, MongoDB</li>
-					  <li>Cloud Platforms: Google Cloud, Heroku, AWS</li>
-					</ul>
-				  </div>
-				  <div class="skill-category">
-					<h3>Tools & Version Control</h3>
-					<ul>
-					  <li>Git</li>
-					  <li>Ryder, VSCode, Visual Studio</li>
-					  <li>Android Studio</li>
-					</ul>
+	<a class="skip" href="#content">Skip to content</a>
+
+	<header class="top">
+		<a class="mark" href="#top" aria-label="ohhnate, back to top">
+			<svg viewBox="0 0 30 12" width="30" height="12" aria-hidden="true"><rect class="era-air-force" width="8" height="12"/><rect class="era-besto" x="11" width="8" height="12"/><rect class="era-aws" x="22" width="8" height="12"/></svg>
+			ohhnate
+		</a>
+		<nav aria-label="Sections">
+			<a href="#work">Work</a>
+			<a href="#experience">Experience</a>
+			<a href="#contact">Contact</a>
+		</nav>
+	</header>
+
+	<main id="content">
+		<section class="hero" aria-labelledby="name">
+			<h1 id="name">Nate Fuller</h1>
+			<div class="hero-text">
+				<p class="lede">Game systems programmer. I build the parts of a game that have to be <span class="nowrap">frame-perfect</span>: rollback netcode, deterministic engines, input and audio.</p>
+				<div>
+					<p class="intro">I spent nearly four years on Idol Showdown at Besto Games. Now I work on distributed block storage at AWS, and I’m open to new work and consulting.</p>
+					<p class="actions"><a class="button" href="mailto:contact@ohhnate.dev">Email me</a></p>
 				</div>
 			</div>
-		</div>
-	</section>
-	<section id="contact">
-		<h1>Contact</h1>
-		<div class="contact-icons">
-			<a href="https://twitter.com/ReallyMeNate" target="_blank">
-				<picture>
-					<source type="image/webp" srcset="images/webp/twitterIcon.webp">
-					<img id=twitterIcon src="images/twitterIcon.png" alt="Twitter Icon" title="@ReallyMeNate" width="64">
-				</picture>
-			</a>
-			<a href="https://github.com/ohhnate" target="_blank">
-				<picture>
-					<source type="image/webp" srcset="images/webp/githubIcon.webp">
-					<img id=githubIcon src="images/githubIcon.png" alt="Github Icon" title="github.com/ohhnate" width="64">
-				</picture>
-			</a>
-			<a href="https://www.linkedin.com/in/samuel-fuller1/" target="_blank">
-				<picture>
-					<source type="image/webp" srcset="images/webp/linkedinIcon.webp">
-					<img id=linkedinIcon src="images/linkedinIcon.png" alt="Linkedin Icon" title="linkedin.com/in/samuel-fuller1" width="64">
-				</picture>
-			</a>
-			<a href="mailto: ohhnate@gmail.com" target="_blank">
-				<picture>
-					<source type="image/webp" srcset="images/webp/emailIcon.webp">
-					<img id=emailIcon src="images/emailIcon.png" alt="Email Icon" title="ohhnate@gmail.com" width="64">
-				</picture>
-			</a>
-		</div>
-		<p>If you have any business inquiries, collaboration opportunities, or would like to request my resume, 
-			feel free to reach out to me through email or social media. 
-			I'm always open to new opportunities and look forward to hearing from you!
-		</p>
-	</section>
-	<footer>
-		<p>&copy; 2023 Samuel Fuller</p>
-		<a href="#home">
-			<picture>
-				<source type="image/webp" srcset="images/webp/upArrowMagick.webp">
-				<img id=upArrow src="images/upArrowMagick.png" alt="Return Arrow" title="Return Arrow" width="64">
-			</picture>
-		</a>
+
+			<!-- One column per month from January 2012. To update the meter, see README.md. -->
+			<figure class="meter" style="--months: 179" aria-labelledby="meter-caption">
+				<span class="meter-row-name meter-row-work">Work</span>
+				<span class="meter-row-name meter-row-school">School</span>
+				<div class="meter-timeline" aria-hidden="true">
+					<span class="meter-label meter-label-work" style="--from: 1">Air Force</span>
+					<span class="meter-label meter-label-work" style="--from: 106">Besto Games</span>
+					<span class="meter-label meter-label-work" style="--from: 162">AWS</span>
+					<span class="meter-label meter-label-work meter-label-end">Now</span>
+
+					<div class="meter-cells meter-cells-work">
+						<i class="era-air-force" style="--from: 1; --span: 76"></i>
+						<i class="era-besto" style="--from: 106; --span: 56"></i>
+						<i class="era-aws ongoing" style="--from: 162"></i>
+					</div>
+					<div class="meter-cells meter-cells-school">
+						<i class="era-school" style="--from: 77; --span: 32"></i>
+						<i class="era-school" style="--from: 109; --span: 27"></i>
+					</div>
+
+					<span class="meter-label meter-label-school" style="--from: 77">Butte<span class="long"> College</span></span>
+					<span class="meter-label meter-label-school" style="--from: 109">Fisher<span class="long"> College</span></span>
+
+					<span class="meter-year" style="--from: 1">2012</span>
+					<span class="meter-year" style="--from: 25">2014</span>
+					<span class="meter-year" style="--from: 49">2016</span>
+					<span class="meter-year" style="--from: 73">2018</span>
+					<span class="meter-year" style="--from: 97">2020</span>
+					<span class="meter-year" style="--from: 121">2022</span>
+					<span class="meter-year" style="--from: 145">2024</span>
+					<span class="meter-year" style="--from: 169">2026</span>
+				</div>
+				<figcaption id="meter-caption">One cell per month since January 2012.<span class="visually-hidden"> Air Force from 2012 to 2018, Butte College and Fisher College from 2018 to 2023, Besto Games from 2020 to 2024, and AWS from 2025 to now.</span></figcaption>
+			</figure>
+		</section>
+
+		<section id="work" aria-labelledby="work-title">
+			<h2 id="work-title">Work</h2>
+
+			<article class="project era-besto">
+				<a class="project-media" href="https://store.steampowered.com/app/1742020/Idol_Showdown/">
+					<img src="assets/idol-showdown.webp" srcset="assets/idol-showdown-640.webp 640w, assets/idol-showdown.webp 1280w" sizes="(max-width: 52rem) 100vw, 640px" width="1280" height="720" loading="lazy" alt="Idol Showdown: two fighters trade hits in front of a torii gate on a bamboo shrine stage.">
+				</a>
+				<div class="project-body">
+					<h3>Idol Showdown</h3>
+					<p>A free, fan-made hololive fighting game with rollback netcode. It has more than 1.2 million downloads and a 9/10 rating on Steam.</p>
+					<p>As a systems programmer at Besto Games I built input handling on SDL and the Wwise audio integration, worked on the UI, wrote debugging and tracking tools inside the Unity Editor, and made a bug tracker that sent designers’ reports straight into our CI/CD pipeline.</p>
+					<dl class="facts">
+						<div><dt>Years</dt><dd>2020 to 2024</dd></div>
+						<div><dt>Built with</dt><dd>Unity, C#, C++, SDL, Wwise</dd></div>
+					</dl>
+					<ul class="links">
+						<li><a href="https://store.steampowered.com/app/1742020/Idol_Showdown/">Play it free on Steam</a></li>
+						<li><a href="https://www.youtube.com/watch?v=lkcTeZyknQg">Watch the trailer</a></li>
+					</ul>
+				</div>
+			</article>
+
+			<article class="project era-besto">
+				<figure class="project-media rollback" aria-labelledby="rollback-caption">
+					<div class="rollback-row">
+						<span class="rollback-name">Guessing</span>
+						<ol class="rollback-frames" aria-hidden="true">
+							<li class="f-confirmed"></li><li class="f-confirmed"></li><li class="f-confirmed"></li><li class="f-confirmed"></li><li class="f-confirmed"></li><li class="f-confirmed"></li><li class="f-confirmed"></li>
+							<li class="f-predicted"></li><li class="f-predicted"></li><li class="f-predicted"></li><li class="f-predicted"></li><li class="f-predicted"></li>
+						</ol>
+					</div>
+					<div class="rollback-row">
+						<span class="rollback-name">Corrected</span>
+						<ol class="rollback-frames" aria-hidden="true">
+							<li class="f-confirmed"></li><li class="f-confirmed"></li><li class="f-confirmed"></li><li class="f-confirmed"></li><li class="f-confirmed"></li><li class="f-confirmed"></li><li class="f-confirmed"></li>
+							<li class="f-resim f-late"></li><li class="f-resim"></li><li class="f-resim"></li><li class="f-resim"></li><li class="f-resim"></li>
+						</ol>
+					</div>
+					<ul class="rollback-key">
+						<li><i class="f-confirmed"></i>Confirmed input</li>
+						<li><i class="f-predicted"></i>Predicted input</li>
+						<li><i class="f-resim"></i>Re-simulated</li>
+						<li><i class="f-late-key"></i>Late input arrives</li>
+					</ul>
+					<figcaption id="rollback-caption">The last five frames ran on a guess of the other player’s input. When their real input for the first of those frames arrives, the game rewinds to the last confirmed frame and re-simulates all five before drawing the next one.</figcaption>
+				</figure>
+				<div class="project-body">
+					<h3>BestoNet</h3>
+					<p>Open-source rollback netcode for Unity, written in C# for Idol Showdown. It replaced the game’s GGPO integration to get rid of relay latency and multi-frame rollback bugs.</p>
+					<p>I worked on speculative frame saving, input prediction, keeping both peers’ clocks in step, and a 7-frame input buffer that rides out lost and out-of-order packets.</p>
+					<dl class="facts">
+						<div><dt>Open-sourced</dt><dd>2024</dd></div>
+						<div><dt>Built with</dt><dd>C#, Unity, Steamworks</dd></div>
+					</dl>
+					<ul class="links">
+						<li><a href="https://github.com/BestoGames/BestoNet">Read the source on GitHub</a></li>
+					</ul>
+				</div>
+			</article>
+
+			<h3 class="work-subhead">Smaller games</h3>
+			<ul class="games">
+				<li>
+					<a href="https://masterjonald.itch.io/foxtales"><img src="assets/foxtales.webp" srcset="assets/foxtales-315.webp 315w, assets/foxtales.webp 630w" sizes="(max-width: 52rem) 50vw, 270px" width="630" height="500" alt="" loading="lazy"><span class="game-title">FoxTales</span></a>
+					<p>An NES-style platformer in the spirit of DuckTales, made as a birthday project for Shirakami Fubuki. With MasterJonald, 2026.</p>
+				</li>
+				<li>
+					<a href="https://ohhnate.itch.io/bau-bau-bustin-out"><img src="assets/bau-bau-bustin-out.webp" srcset="assets/bau-bau-bustin-out-315.webp 315w, assets/bau-bau-bustin-out.webp 630w" sizes="(max-width: 52rem) 50vw, 270px" width="630" height="500" alt="" loading="lazy"><span class="game-title">Bau Bau Bustin Out</span></a>
+					<p>A FuwaMoco platformer about breaking out of confinement. With Poppysicle, 2024.</p>
+				</li>
+				<li>
+					<a href="https://nullctipus.itch.io/lazulightless"><img src="assets/lightless.webp" srcset="assets/lightless-315.webp 315w, assets/lightless.webp 630w" sizes="(max-width: 52rem) 50vw, 270px" width="630" height="500" alt="" loading="lazy"><span class="game-title">Lightless</span></a>
+					<p>A stealth horror puzzle game: a princess escapes her captor after her hero abandons her. With Nullctipus and Gogibahp, 2023.</p>
+				</li>
+				<li>
+					<a href="https://ohhnate.itch.io/carrot-catcher"><img src="assets/carrot-catcher.webp" srcset="assets/carrot-catcher-315.webp 315w, assets/carrot-catcher.webp 630w" sizes="(max-width: 52rem) 50vw, 270px" width="630" height="500" alt="" loading="lazy"><span class="game-title">Carrot Catcher</span></a>
+					<p>A small grid puzzle starring a bunny. With Gogibahp, Poppysicle and Saitooo, 2022.</p>
+				</li>
+			</ul>
+
+			<h3 class="work-subhead">Engines and tools</h3>
+			<ul class="tools">
+				<li><h4>BestoEngine</h4><p>A 2D engine on MonoGame with ECS and 2D physics, built around a deterministic core: a fixed-tick loop, rollback state hooks and a fixed-point math library.</p></li>
+				<li><h4><a href="https://github.com/ohhnate/UnityHelpers">UnityHelpers</a></h4><p>Helper classes and systems I reuse across Unity projects.</p></li>
+				<li><h4>In progress</h4><p>My own 2D engine in C# on Vulkan, and a farm defense game built on it with an artist friend.</p></li>
+			</ul>
+		</section>
+
+		<section id="experience" aria-labelledby="experience-title">
+			<h2 id="experience-title">Experience</h2>
+			<ol class="jobs">
+				<li class="era-aws">
+					<p class="job-when">2025 to now</p>
+					<div>
+						<h3>Amazon Web Services</h3>
+						<p class="job-role">Software development engineer, Elastic Block Store</p>
+						<p>I work on the EBS Durability Engine in C++. I designed a metadata sync pipeline for replication across availability zones, moved intent deletion off the write path into async garbage collection, built the metrics and alerting for the B-Tree Clone rollout, and tracked down flaky integration tests caused by memory-safety bugs and races.</p>
+					</div>
+				</li>
+				<li class="era-besto">
+					<p class="job-when">2020 to 2024</p>
+					<div>
+						<h3>Besto Games</h3>
+						<p class="job-role">Systems programmer, Idol Showdown</p>
+						<p>I built input, audio, UI and editor tools for a fighting game with 1.2 million downloads, and worked on its rollback netcode.</p>
+					</div>
+				</li>
+				<li class="era-school">
+					<p class="job-when">2021 to 2023</p>
+					<div>
+						<h3>Fisher College</h3>
+						<p class="job-role">B.S. in Software Engineering</p>
+					</div>
+				</li>
+				<li class="era-school">
+					<p class="job-when">2018 to 2020</p>
+					<div>
+						<h3>Butte College</h3>
+						<p class="job-role">A.S. in Social and Behavioral Science</p>
+					</div>
+				</li>
+				<li class="era-air-force">
+					<p class="job-when">2012 to 2018</p>
+					<div>
+						<h3>United States Air Force</h3>
+						<p class="job-role">Human resource manager</p>
+						<p>I processed performance reports for 4,100 people and handled more than $32,000 a week in special pay inquiries. I earned the Air Force Achievement Medal and was picked from 500+ candidates to train and mentor 180 university students at Maxwell Air Force Base.</p>
+					</div>
+				</li>
+			</ol>
+		</section>
+
+		<section id="contact" aria-labelledby="contact-title">
+			<h2 id="contact-title">Get in touch</h2>
+			<p>Email is the fastest way to reach me.</p>
+			<p class="email"><a href="mailto:contact@ohhnate.dev">contact@ohhnate.dev</a></p>
+			<ul class="elsewhere">
+				<li><a href="https://github.com/ohhnate" rel="me">GitHub</a></li>
+				<li><a href="https://ohhnate.itch.io" rel="me">itch.io</a></li>
+				<li><a href="https://www.linkedin.com/in/samuel-fuller1/" rel="me">LinkedIn</a></li>
+			</ul>
+		</section>
+	</main>
+
+	<footer class="bottom">
+		<p>© 2026 Nate Fuller</p>
 	</footer>
 </body>
 </html>
