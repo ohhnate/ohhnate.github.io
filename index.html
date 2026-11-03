@@ -64,7 +64,717 @@
 	<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 	<link rel="preload" href="/assets/fonts/anybody-italic.woff2" as="font" type="font/woff2" crossorigin>
 	<link rel="preload" href="/assets/fonts/schibsted-grotesk.woff2" as="font" type="font/woff2" crossorigin>
-	<link rel="stylesheet" href="/styles.css?v=7d55241a99">
+	<style>
+/* ohhnate.dev: a career drawn as a fighting-game frame meter. */
+
+/*
+ * Self-hosted fonts, trimmed by tools/trim_fonts.py and split by character set, so a page only
+ * downloads the files its text uses. Cyrillic comes from matching families (Fira Sans Extra
+ * Condensed, Golos Text) under the same names. Chinese and Japanese use system fonts.
+ */
+@font-face {
+	font-family: "Anybody";
+	src: url("/assets/fonts/anybody-italic.woff2") format("woff2");
+	font-style: italic;
+	font-weight: 800 850;
+	font-stretch: 58% 80%;
+	font-display: swap;
+	unicode-range: U+0020-007E, U+00A0, U+00A9, U+00AB, U+00BB, U+2013-2014, U+2018-2019, U+201C-201E, U+2022, U+2026, U+2122;
+}
+
+@font-face {
+	font-family: "Anybody";
+	src: url("/assets/fonts/anybody-italic-ext.woff2") format("woff2");
+	font-style: italic;
+	font-weight: 800 850;
+	font-stretch: 58% 80%;
+	font-display: swap;
+	unicode-range: U+00A1-00A8, U+00AA, U+00AC-00BA, U+00BC-00FF, U+0152-0153, U+202F, U+2039-203A, U+20AC;
+}
+
+@font-face {
+	font-family: "Anybody";
+	src: url("/assets/fonts/fira-sans-extra-condensed-cyrillic.woff2") format("woff2");
+	font-style: italic;
+	font-weight: 800 850;
+	font-stretch: 58% 80%;
+	font-display: swap;
+	unicode-range: U+0400-045F, U+0490-0491, U+2116;
+}
+
+/* Arial or Roboto scaled to Anybody's width, so the name doesn't rewrap when Anybody arrives. */
+@font-face {
+	font-family: "Anybody fallback";
+	src: local("Arial Bold Italic"), local("Arial-BoldItalicMT"), local("Roboto Bold Italic"), local("Roboto-BoldItalic");
+	font-style: italic;
+	font-weight: 800 850;
+	size-adjust: 71%;
+}
+
+@font-face {
+	font-family: "Schibsted Grotesk";
+	src: url("/assets/fonts/schibsted-grotesk.woff2") format("woff2");
+	font-style: normal;
+	font-weight: 400 700;
+	font-display: swap;
+	unicode-range: U+0020-007E, U+00A0, U+00A9, U+00AB, U+00BB, U+2013-2014, U+2018-2019, U+201C-201E, U+2022, U+2026, U+2122;
+}
+
+@font-face {
+	font-family: "Schibsted Grotesk";
+	src: url("/assets/fonts/schibsted-grotesk-ext.woff2") format("woff2");
+	font-style: normal;
+	font-weight: 400 700;
+	font-display: swap;
+	unicode-range: U+00A1-00A8, U+00AA, U+00AC-00BA, U+00BC-00FF, U+0152-0153, U+202F, U+2039-203A, U+20AC;
+}
+
+@font-face {
+	font-family: "Schibsted Grotesk";
+	src: url("/assets/fonts/golos-text-cyrillic.woff2") format("woff2");
+	font-style: normal;
+	font-weight: 400 700;
+	font-display: swap;
+	unicode-range: U+0400-045F, U+0490-0491, U+2116;
+}
+
+:root {
+	--stage: #E7E8EF;
+	--ink: #1A1D3A;
+	--ink-soft: #4B5072;
+	--panel: var(--ink);
+	--on-panel: var(--stage);
+	--on-panel-soft: #B9BDD6;
+	--on-accent: #1A1D3A;
+	--rule: #C9CDD9;
+	--idle: #CDD1DD;
+
+	--c-air-force: #3D6FE0;
+	--c-school: #D49B00;
+	--c-besto: #EE4D74;
+	--c-aws: #1F9E7C;
+	--c-focus: #7A52D9;
+
+	--fallback: system-ui, sans-serif;
+	--display: "Anybody", "Anybody fallback", var(--fallback);
+	--text: "Schibsted Grotesk", var(--fallback);
+
+	--gutter: clamp(1.25rem, 4vw, 3rem);
+	--page: min(100% - 2 * var(--gutter), 72rem);
+	--measure: 38rem;
+	--cell-gap: 1px;
+
+	color-scheme: light;
+}
+
+/* Dark theme, picked with the toggle in the top bar and saved in localStorage. */
+:root[data-theme="dark"] {
+	--stage: #13152B;
+	--ink: #E7E8EF;
+	--ink-soft: #A3A8C7;
+	--panel: #1E2144;
+	--on-panel: #E7E8EF;
+	--on-panel-soft: #A3A8C7;
+	--rule: #2C3056;
+	--idle: #2A2E52;
+
+	--c-air-force: #5B8BFF;
+	--c-school: #E5AE10;
+	--c-besto: #FF5C85;
+	--c-aws: #2BB892;
+	--c-focus: #A58BFF;
+
+	color-scheme: dark;
+}
+
+/* Chinese and Japanese use each platform's own fonts and keep CJK glyphs upright in italic headings. */
+:root:lang(zh-CN) { --fallback: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", "Noto Sans CJK SC", sans-serif; }
+:root:lang(zh-HK) { --fallback: "PingFang HK", "PingFang TC", "Microsoft JhengHei", "Noto Sans HK", "Noto Sans TC", "Noto Sans CJK TC", sans-serif; }
+:root:lang(ja) { --fallback: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Yu Gothic", Meiryo, "Noto Sans JP", "Noto Sans CJK JP", sans-serif; line-break: strict; }
+body:lang(zh), body:lang(ja) { font-synthesis-style: none; line-height: 1.75; }
+
+.era-air-force { --era: var(--c-air-force); }
+.era-school { --era: var(--c-school); }
+.era-besto { --era: var(--c-besto); }
+.era-aws { --era: var(--c-aws); }
+
+/* Base */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+	margin: 0;
+	background: var(--stage);
+	color: var(--ink);
+	font-family: var(--text);
+	font-size: 1.125rem;
+	line-height: 1.55;
+	-webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, p, ul, ol, dl, dd, figure { margin: 0; }
+
+ul, ol { padding: 0; list-style: none; }
+
+a {
+	color: inherit;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 0.2em;
+}
+
+a:hover {
+	text-decoration-color: var(--c-besto);
+	text-decoration-thickness: 2px;
+}
+
+:focus-visible {
+	outline: 3px solid var(--c-focus);
+	outline-offset: 3px;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+
+::selection { background: var(--c-besto); color: var(--on-accent); }
+
+@media (prefers-reduced-motion: reduce) {
+	html { scroll-behavior: auto; }
+}
+
+/* Every display-face element is heavy italic Anybody; each sets its own width and size. */
+.mark, h1, h2, h3, .game-title, .email {
+	font-family: var(--display);
+	font-style: italic;
+	font-weight: 800;
+}
+
+.skip {
+	position: absolute;
+	left: var(--gutter);
+	top: -4rem;
+	padding: 0.5rem 1rem;
+	background: var(--ink);
+	color: var(--stage);
+}
+
+.skip:focus { top: 1rem; }
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+}
+
+/* Top bar */
+
+.top, main > section, .bottom {
+	width: var(--page);
+	margin-inline: auto;
+}
+
+.top {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1rem;
+	padding-block: 1.25rem;
+}
+
+.mark {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.625rem;
+	font-stretch: 80%;
+	font-size: 1.3125rem;
+	text-decoration: none;
+}
+
+.mark rect { fill: var(--era); }
+
+.top nav { display: flex; gap: 1.5rem; }
+
+.top nav a { font-weight: 600; text-decoration-line: none; }
+
+.top nav a:hover { text-decoration-line: underline; }
+
+.top-tools {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.75rem 1.5rem;
+}
+
+.top-tools svg {
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 1.6;
+	stroke-linecap: round;
+}
+
+.lang-menu { position: relative; }
+
+.lang-menu summary {
+	display: flex;
+	align-items: center;
+	gap: 0.375rem;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.lang-menu summary::-webkit-details-marker { display: none; }
+
+.lang-menu ul {
+	position: absolute;
+	top: calc(100% + 0.625rem);
+	right: 0;
+	z-index: 10;
+	min-width: 13rem;
+	padding: 0.375rem;
+	background: var(--stage);
+	border: 1px solid var(--rule);
+	box-shadow: 4px 4px 0 var(--rule);
+	/* System font for the language names, so opening the menu doesn't download other scripts' fonts. */
+	font-family: system-ui, sans-serif;
+}
+
+.lang-menu a {
+	display: block;
+	padding: 0.375rem 0.75rem;
+	text-decoration: none;
+}
+
+.lang-menu a:hover { background: var(--idle); }
+
+.lang-menu a[aria-current] { font-weight: 700; box-shadow: inset 3px 0 0 var(--c-besto); }
+
+.theme-toggle {
+	display: inline-grid;
+	place-items: center;
+	width: 2.25rem;
+	height: 2.25rem;
+	padding: 0;
+	border: 1px solid var(--rule);
+	border-radius: 2px;
+	background: none;
+	color: inherit;
+	cursor: pointer;
+}
+
+.theme-toggle:hover { border-color: var(--ink-soft); }
+
+.theme-toggle[hidden], .icon-sun, :root[data-theme="dark"] .icon-moon { display: none; }
+
+:root[data-theme="dark"] .icon-sun { display: block; }
+
+/* Hero */
+
+.hero { padding-block: clamp(2.5rem, 7vh, 5.5rem) clamp(4rem, 10vw, 7rem); }
+
+h1 {
+	font-weight: 850;
+	font-stretch: 58%;
+	font-size: clamp(4.5rem, 24vw, 12.5rem);
+	line-height: 0.82;
+	letter-spacing: -0.01em;
+	margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.hero-text, .project {
+	display: grid;
+	grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+	align-items: start;
+}
+
+.hero-text { gap: 1.25rem clamp(2rem, 5vw, 4.5rem); }
+
+.lede {
+	max-width: 36rem;
+	font-size: clamp(1.3125rem, 2.4vw, 1.75rem);
+	line-height: 1.35;
+	font-weight: 500;
+}
+
+.intro {
+	max-width: var(--measure);
+	padding-top: 0.375rem;
+	color: var(--ink-soft);
+}
+
+.actions { margin-top: 1.5rem; }
+
+.button {
+	display: inline-block;
+	padding: 0.75rem 1.375rem;
+	border-radius: 2px;
+	background: var(--ink);
+	color: var(--stage);
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.button:hover { background: var(--c-besto); color: var(--on-accent); }
+
+/* Frame meter. The figure sets --months inline: one grid column per month since January 2012. */
+
+.meter {
+	display: grid;
+	grid-template-columns: max-content minmax(0, 1fr);
+	grid-template-rows: repeat(4, 1.75rem) 1.5rem;
+	column-gap: 1rem;
+	row-gap: 0.25rem;
+	margin-top: clamp(3rem, 7vh, 4.5rem);
+	font-size: 0.875rem;
+	line-height: 1.2;
+}
+
+.meter-row-name {
+	grid-column: 1;
+	align-self: center;
+	color: var(--ink-soft);
+}
+
+.meter-row-work, .meter-cells-work { grid-row: 2; }
+.meter-row-school, .meter-cells-school { grid-row: 3; }
+
+.meter-timeline {
+	grid-column: 2;
+	grid-row: 1 / 6;
+	display: grid;
+	grid-template-rows: subgrid;
+	grid-template-columns: repeat(var(--months), minmax(0, 1fr));
+}
+
+.meter-label {
+	grid-column-start: var(--from);
+	white-space: nowrap;
+	font-weight: 600;
+}
+
+.meter-label-work { grid-row: 1; align-self: end; }
+.meter-label-school { grid-row: 4; align-self: start; }
+
+/* Labels with a long name also carry a short one for phones. */
+.meter .short { display: none; }
+
+.meter-cells {
+	grid-column: 1 / -1;
+	display: grid;
+	grid-template-columns: subgrid;
+	background: var(--idle);
+	/* One mask cuts each row into cells, so segments and empty months share the same gaps. */
+	mask-image: repeating-linear-gradient(
+		to right,
+		#000 0 calc(100% / var(--months) - var(--cell-gap)),
+		transparent 0 calc(100% / var(--months))
+	);
+}
+
+.meter-cells i {
+	grid-row: 1;
+	grid-column: var(--from) / span var(--span);
+	background: var(--era);
+}
+
+/* The ongoing era has no span; it runs to the last month. */
+.meter-cells .ongoing { grid-column: var(--from) / -1; }
+
+.meter-year {
+	grid-row: 5;
+	grid-column-start: var(--from);
+	padding-left: 0.375rem;
+	border-left: 1px solid var(--ink-soft);
+	color: var(--ink-soft);
+	white-space: nowrap;
+	font-variant-numeric: tabular-nums;
+}
+
+/* The one animated moment: the meter fills cell by cell, left to right, in about a second. */
+@media (prefers-reduced-motion: no-preference) {
+	.meter-cells {
+		animation: record 1s steps(var(--months), end) 0.2s both;
+	}
+}
+
+@keyframes record {
+	from { clip-path: inset(0 100% 0 0); }
+	to { clip-path: inset(0 0 0 0); }
+}
+
+/* Sections */
+
+main > section + section {
+	padding-block: clamp(4rem, 9vw, 7rem);
+	border-top: 1px solid var(--rule);
+}
+
+h2 {
+	font-weight: 850;
+	font-stretch: 62%;
+	font-size: clamp(3rem, 7vw, 4.5rem);
+	line-height: 0.9;
+	margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+/* Projects */
+
+.project {
+	gap: clamp(1.5rem, 4vw, 3.5rem);
+	margin-bottom: clamp(4rem, 8vw, 6rem);
+}
+
+.project-media { position: relative; }
+
+/* A strip of cells in the project's era color ties it back to the meter. */
+.project-media::before {
+	content: "";
+	position: absolute;
+	inset: -14px 0 auto;
+	height: 6px;
+	background: repeating-linear-gradient(to right, var(--era) 0 10px, transparent 0 13px);
+}
+
+.project h3 {
+	font-stretch: 72%;
+	font-size: 2.5rem;
+	line-height: 1;
+	margin-bottom: 1rem;
+}
+
+.project-body p + p { margin-top: 0.875rem; }
+
+.project-body > p { max-width: var(--measure); }
+
+.facts {
+	display: grid;
+	gap: 0.25rem;
+	margin-top: 1.5rem;
+	font-size: 0.9375rem;
+}
+
+.facts div {
+	display: grid;
+	grid-template-columns: 7.5rem 1fr;
+	gap: 1rem;
+}
+
+.facts dt { color: var(--ink-soft); }
+
+.links, .elsewhere, .rollback-key { display: flex; flex-wrap: wrap; }
+
+.links {
+	gap: 0.5rem 1.5rem;
+	margin-top: 1.5rem;
+	font-weight: 700;
+}
+
+/* Rollback diagram */
+
+.rollback {
+	display: grid;
+	gap: 0.75rem;
+	padding: clamp(1.25rem, 3vw, 2rem);
+	background: var(--panel);
+	color: var(--on-panel);
+	font-size: 0.875rem;
+}
+
+.rollback-row {
+	display: grid;
+	grid-template-columns: 5.5rem minmax(0, 1fr);
+	align-items: center;
+	gap: 1rem;
+}
+
+.rollback-name { color: var(--on-panel-soft); }
+
+.rollback-frames {
+	display: grid;
+	grid-template-columns: repeat(12, minmax(0, 1fr));
+	gap: 3px;
+}
+
+.rollback-frames li { height: 2.75rem; }
+
+.f-confirmed { background: var(--on-panel); }
+.f-predicted { box-shadow: inset 0 0 0 2px var(--on-panel-soft); }
+.f-resim { background: var(--c-besto); }
+
+.f-late { position: relative; }
+
+.f-late::before, .rollback-key .f-late-key {
+	width: 3px;
+	background: var(--c-school);
+}
+
+.f-late::before {
+	content: "";
+	position: absolute;
+	inset: -6px auto -6px -3px;
+}
+
+.rollback-key {
+	gap: 0.5rem 1.25rem;
+	margin-top: 0.5rem;
+}
+
+.rollback-key li { display: flex; align-items: center; gap: 0.5rem; }
+
+.rollback-key i { width: 0.875rem; height: 0.875rem; }
+
+.rollback-key .f-late-key { height: 1.125rem; }
+
+.rollback figcaption {
+	max-width: 36rem;
+	color: var(--on-panel-soft);
+	line-height: 1.5;
+}
+
+/* Smaller games and tools */
+
+.work-subhead {
+	font-stretch: 80%;
+	font-size: 1.75rem;
+	line-height: 1.1;
+	margin-bottom: 1.75rem;
+}
+
+.games {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 2.5rem 1.5rem;
+	margin-bottom: clamp(4rem, 8vw, 6rem);
+}
+
+.games a { display: block; text-decoration: none; }
+
+.game-title {
+	display: block;
+	margin-top: 0.875rem;
+	font-stretch: 78%;
+	font-size: 1.5rem;
+	line-height: 1.1;
+}
+
+.games a:hover .game-title { text-decoration: underline var(--c-besto) 2px; }
+
+.games p {
+	margin-top: 0.375rem;
+	color: var(--ink-soft);
+	font-size: 0.9375rem;
+	line-height: 1.5;
+}
+
+.tools {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+	gap: 2rem clamp(1.5rem, 4vw, 3.5rem);
+}
+
+.tools h4 { font-size: 1.125rem; font-weight: 700; }
+
+.tools p { margin-top: 0.25rem; color: var(--ink-soft); max-width: var(--measure); }
+
+/* Experience */
+
+.jobs li {
+	display: grid;
+	grid-template-columns: 10rem minmax(0, 1fr);
+	gap: 0.5rem 2rem;
+	padding-block: 1.75rem;
+	border-top: 1px solid var(--rule);
+}
+
+.job-when {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	align-self: start;
+	padding-top: 0.375rem;
+	color: var(--ink-soft);
+	font-variant-numeric: tabular-nums;
+}
+
+.job-when::before {
+	content: "";
+	flex: none;
+	width: 0.625rem;
+	height: 1.125rem;
+	background: var(--era);
+}
+
+.jobs h3 {
+	font-stretch: 72%;
+	font-size: 1.875rem;
+	line-height: 1.1;
+}
+
+.jobs h3 ~ p { margin-top: 0.625rem; max-width: var(--measure); }
+
+.jobs .job-role { margin-top: 0.25rem; font-weight: 600; }
+
+/* Contact */
+
+.email {
+	margin-top: 0.75rem;
+	font-stretch: 72%;
+	font-size: clamp(1.75rem, 5vw, 2.5rem);
+	line-height: 1.1;
+	overflow-wrap: anywhere;
+}
+
+.email a { text-decoration-thickness: 0.08em; text-underline-offset: 0.15em; }
+
+.elsewhere {
+	gap: 0.5rem 2rem;
+	margin-top: 2rem;
+	font-weight: 700;
+}
+
+/* Footer */
+
+.bottom {
+	padding-block: 2rem 3rem;
+	color: var(--ink-soft);
+	font-size: 0.875rem;
+}
+
+/* Narrow screens */
+
+@media (max-width: 52rem) {
+	.hero-text, .project { grid-template-columns: minmax(0, 1fr); }
+
+	.games { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 1rem; }
+
+	.jobs li { grid-template-columns: minmax(0, 1fr); }
+
+	.job-when { padding-top: 0; }
+}
+
+@media (max-width: 40rem) {
+	/* Below this width a month is under 2px wide, so the meter draws solid segments. */
+	.meter-cells { mask-image: none; }
+
+	.meter { font-size: 0.75rem; column-gap: 0.625rem; }
+
+	.meter .full { display: none; }
+
+	.meter .short { display: inline; }
+
+	/* The current era's label sits at the meter's end, where there is room for it. */
+	.meter-label-ongoing { grid-column: 1 / -1; justify-self: end; }
+
+	.meter-year:nth-child(even of .meter-year) { display: none; }
+
+	.rollback-row { grid-template-columns: minmax(0, 1fr); gap: 0.375rem; }
+
+	.rollback-frames li { height: 2rem; }
+}
+	</style>
 	<script src="/assets/site.js?v=60e55be3b3" defer></script>
 	<script type="application/ld+json">
 	{
@@ -173,7 +883,7 @@
 
 			<article class="project era-besto">
 				<a class="project-media" href="https://store.steampowered.com/app/1742020/Idol_Showdown/">
-					<img src="/assets/idol-showdown.webp" srcset="/assets/idol-showdown-640.webp 640w, /assets/idol-showdown.webp 1280w" sizes="(max-width: 52rem) 100vw, 640px" width="1280" height="720" loading="lazy" alt="Idol Showdown: two fighters trade hits in front of a torii gate on a bamboo shrine stage.">
+					<img src="/assets/idol-showdown-960.webp" srcset="/assets/idol-showdown-640.webp 640w, /assets/idol-showdown-720.webp 720w, /assets/idol-showdown-960.webp 960w, /assets/idol-showdown.webp 1280w" sizes="(max-width: 52rem) calc(100vw - 2.5rem), 640px" width="1280" height="720" loading="lazy" alt="Idol Showdown: two fighters trade hits in front of a torii gate on a bamboo shrine stage.">
 				</a>
 				<div class="project-body">
 					<h3>Idol Showdown</h3>
@@ -231,19 +941,19 @@
 			<h3 class="work-subhead">Smaller games</h3>
 			<ul class="games">
 				<li>
-					<a href="https://masterjonald.itch.io/foxtales"><img src="/assets/foxtales.webp" srcset="/assets/foxtales-315.webp 315w, /assets/foxtales.webp 630w" sizes="(max-width: 52rem) 50vw, 270px" width="630" height="500" alt="" loading="lazy"><span class="game-title">FoxTales</span></a>
+					<a href="https://masterjonald.itch.io/foxtales"><img src="/assets/foxtales.webp" srcset="/assets/foxtales-315.webp 315w, /assets/foxtales.webp 630w" sizes="(max-width: 52rem) calc(50vw - 1.75rem), 270px" width="630" height="500" alt="" loading="lazy"><span class="game-title">FoxTales</span></a>
 					<p>An NES-style platformer in the spirit of DuckTales, made as a birthday project for Shirakami Fubuki. With MasterJonald, 2026.</p>
 				</li>
 				<li>
-					<a href="https://ohhnate.itch.io/bau-bau-bustin-out"><img src="/assets/bau-bau-bustin-out.webp" srcset="/assets/bau-bau-bustin-out-315.webp 315w, /assets/bau-bau-bustin-out.webp 630w" sizes="(max-width: 52rem) 50vw, 270px" width="630" height="500" alt="" loading="lazy"><span class="game-title">Bau Bau Bustin Out</span></a>
+					<a href="https://ohhnate.itch.io/bau-bau-bustin-out"><img src="/assets/bau-bau-bustin-out.webp" srcset="/assets/bau-bau-bustin-out-315.webp 315w, /assets/bau-bau-bustin-out.webp 630w" sizes="(max-width: 52rem) calc(50vw - 1.75rem), 270px" width="630" height="500" alt="" loading="lazy"><span class="game-title">Bau Bau Bustin Out</span></a>
 					<p>A FuwaMoco platformer about breaking out of confinement. With Poppysicle, 2024.</p>
 				</li>
 				<li>
-					<a href="https://nullctipus.itch.io/lazulightless"><img src="/assets/lightless.webp" srcset="/assets/lightless-315.webp 315w, /assets/lightless.webp 630w" sizes="(max-width: 52rem) 50vw, 270px" width="630" height="500" alt="" loading="lazy"><span class="game-title">Lightless</span></a>
+					<a href="https://nullctipus.itch.io/lazulightless"><img src="/assets/lightless.webp" srcset="/assets/lightless-315.webp 315w, /assets/lightless.webp 630w" sizes="(max-width: 52rem) calc(50vw - 1.75rem), 270px" width="630" height="500" alt="" loading="lazy"><span class="game-title">Lightless</span></a>
 					<p>A stealth horror puzzle game: a princess escapes her captor after her hero abandons her. With Nullctipus and Gogibahp, 2023.</p>
 				</li>
 				<li>
-					<a href="https://ohhnate.itch.io/carrot-catcher"><img src="/assets/carrot-catcher.webp" srcset="/assets/carrot-catcher-315.webp 315w, /assets/carrot-catcher.webp 630w" sizes="(max-width: 52rem) 50vw, 270px" width="630" height="500" alt="" loading="lazy"><span class="game-title">Carrot Catcher</span></a>
+					<a href="https://ohhnate.itch.io/carrot-catcher"><img src="/assets/carrot-catcher.webp" srcset="/assets/carrot-catcher-315.webp 315w, /assets/carrot-catcher.webp 630w" sizes="(max-width: 52rem) calc(50vw - 1.75rem), 270px" width="630" height="500" alt="" loading="lazy"><span class="game-title">Carrot Catcher</span></a>
 					<p>A small grid puzzle starring a bunny. With Gogibahp, Poppysicle and Saitooo, 2022.</p>
 				</li>
 			</ul>

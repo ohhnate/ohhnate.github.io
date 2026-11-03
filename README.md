@@ -12,7 +12,7 @@ It writes `index.html` (English) and one `<locale>/index.html` per language, plu
 
 To preview locally, serve the folder (asset paths are root-relative): `python -m http.server`, then open http://localhost:8000.
 
-The build stamps the stylesheet and script URLs with a content hash (`styles.css?v=…`), so a deploy never pairs new pages with a cached old stylesheet.
+The build inlines `styles.css` into every page (no render-blocking stylesheet request) and stamps the script URL with a content hash (`site.js?v=…`), so a deploy never pairs new pages with a cached old script. `404.html` still links the stylesheet file.
 
 ## Search engines
 
@@ -40,4 +40,4 @@ Self-hosted and trimmed by `tools/trim_fonts.py` (instructions at the top of the
 
 ## Images
 
-Each game cover has a half-size `-315` copy and the Idol Showdown shot a `-640` copy, both plain Pillow resizes that the `srcset` attributes choose between. New images need the same.
+`tools/make_images.py` makes every WebP from the original downloads, in the widths the `srcset` attributes list: pixel art lossless with nearest-neighbor scaling, everything else lossy. Add new images there.

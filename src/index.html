@@ -45,7 +45,8 @@
 	<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 	<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 {{ page.preloads | raw }}
-	<link rel="stylesheet" href="/styles.css?v={{ page.css_version }}">
+	<style>
+{{ page.css | raw }}	</style>
 	<script src="/assets/site.js?v={{ page.js_version }}" defer></script>
 	<script type="application/ld+json">
 	{
@@ -146,7 +147,7 @@
 
 			<article class="project era-besto">
 				<a class="project-media" href="https://store.steampowered.com/app/1742020/Idol_Showdown/">
-					<img src="/assets/idol-showdown.webp" srcset="/assets/idol-showdown-640.webp 640w, /assets/idol-showdown.webp 1280w" sizes="(max-width: 52rem) 100vw, 640px" width="1280" height="720" loading="lazy" alt="{{ idol.alt }}">
+					<img src="/assets/idol-showdown-960.webp" srcset="/assets/idol-showdown-640.webp 640w, /assets/idol-showdown-720.webp 720w, /assets/idol-showdown-960.webp 960w, /assets/idol-showdown.webp 1280w" sizes="(max-width: 52rem) calc(100vw - 2.5rem), 640px" width="1280" height="720" loading="lazy" alt="{{ idol.alt }}">
 				</a>
 				<div class="project-body">
 					<h3>Idol Showdown</h3>
@@ -204,19 +205,19 @@
 			<h3 class="work-subhead">{{ games.title }}</h3>
 			<ul class="games">
 				<li>
-					<a href="https://masterjonald.itch.io/foxtales"><img src="/assets/foxtales.webp" srcset="/assets/foxtales-315.webp 315w, /assets/foxtales.webp 630w" sizes="(max-width: 52rem) 50vw, 270px" width="630" height="500" alt="" loading="lazy"><span class="game-title">FoxTales</span></a>
+					<a href="https://masterjonald.itch.io/foxtales"><img src="/assets/foxtales.webp" srcset="/assets/foxtales-315.webp 315w, /assets/foxtales.webp 630w" sizes="(max-width: 52rem) calc(50vw - 1.75rem), 270px" width="630" height="500" alt="" loading="lazy"><span class="game-title">FoxTales</span></a>
 					<p>{{ games.foxtales }}</p>
 				</li>
 				<li>
-					<a href="https://ohhnate.itch.io/bau-bau-bustin-out"><img src="/assets/bau-bau-bustin-out.webp" srcset="/assets/bau-bau-bustin-out-315.webp 315w, /assets/bau-bau-bustin-out.webp 630w" sizes="(max-width: 52rem) 50vw, 270px" width="630" height="500" alt="" loading="lazy"><span class="game-title">Bau Bau Bustin Out</span></a>
+					<a href="https://ohhnate.itch.io/bau-bau-bustin-out"><img src="/assets/bau-bau-bustin-out.webp" srcset="/assets/bau-bau-bustin-out-315.webp 315w, /assets/bau-bau-bustin-out.webp 630w" sizes="(max-width: 52rem) calc(50vw - 1.75rem), 270px" width="630" height="500" alt="" loading="lazy"><span class="game-title">Bau Bau Bustin Out</span></a>
 					<p>{{ games.baubau }}</p>
 				</li>
 				<li>
-					<a href="https://nullctipus.itch.io/lazulightless"><img src="/assets/lightless.webp" srcset="/assets/lightless-315.webp 315w, /assets/lightless.webp 630w" sizes="(max-width: 52rem) 50vw, 270px" width="630" height="500" alt="" loading="lazy"><span class="game-title">Lightless</span></a>
+					<a href="https://nullctipus.itch.io/lazulightless"><img src="/assets/lightless.webp" srcset="/assets/lightless-315.webp 315w, /assets/lightless.webp 630w" sizes="(max-width: 52rem) calc(50vw - 1.75rem), 270px" width="630" height="500" alt="" loading="lazy"><span class="game-title">Lightless</span></a>
 					<p>{{ games.lightless }}</p>
 				</li>
 				<li>
-					<a href="https://ohhnate.itch.io/carrot-catcher"><img src="/assets/carrot-catcher.webp" srcset="/assets/carrot-catcher-315.webp 315w, /assets/carrot-catcher.webp 630w" sizes="(max-width: 52rem) 50vw, 270px" width="630" height="500" alt="" loading="lazy"><span class="game-title">Carrot Catcher</span></a>
+					<a href="https://ohhnate.itch.io/carrot-catcher"><img src="/assets/carrot-catcher.webp" srcset="/assets/carrot-catcher-315.webp 315w, /assets/carrot-catcher.webp 630w" sizes="(max-width: 52rem) calc(50vw - 1.75rem), 270px" width="630" height="500" alt="" loading="lazy"><span class="game-title">Carrot Catcher</span></a>
 					<p>{{ games.carrot }}</p>
 				</li>
 			</ul>

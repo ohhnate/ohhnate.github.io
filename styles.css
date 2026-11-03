@@ -7,7 +7,7 @@
  */
 @font-face {
 	font-family: "Anybody";
-	src: url("assets/fonts/anybody-italic.woff2") format("woff2");
+	src: url("/assets/fonts/anybody-italic.woff2") format("woff2");
 	font-style: italic;
 	font-weight: 800 850;
 	font-stretch: 58% 80%;
@@ -17,7 +17,7 @@
 
 @font-face {
 	font-family: "Anybody";
-	src: url("assets/fonts/anybody-italic-ext.woff2") format("woff2");
+	src: url("/assets/fonts/anybody-italic-ext.woff2") format("woff2");
 	font-style: italic;
 	font-weight: 800 850;
 	font-stretch: 58% 80%;
@@ -27,7 +27,7 @@
 
 @font-face {
 	font-family: "Anybody";
-	src: url("assets/fonts/fira-sans-extra-condensed-cyrillic.woff2") format("woff2");
+	src: url("/assets/fonts/fira-sans-extra-condensed-cyrillic.woff2") format("woff2");
 	font-style: italic;
 	font-weight: 800 850;
 	font-stretch: 58% 80%;
@@ -46,7 +46,7 @@
 
 @font-face {
 	font-family: "Schibsted Grotesk";
-	src: url("assets/fonts/schibsted-grotesk.woff2") format("woff2");
+	src: url("/assets/fonts/schibsted-grotesk.woff2") format("woff2");
 	font-style: normal;
 	font-weight: 400 700;
 	font-display: swap;
@@ -55,7 +55,7 @@
 
 @font-face {
 	font-family: "Schibsted Grotesk";
-	src: url("assets/fonts/schibsted-grotesk-ext.woff2") format("woff2");
+	src: url("/assets/fonts/schibsted-grotesk-ext.woff2") format("woff2");
 	font-style: normal;
 	font-weight: 400 700;
 	font-display: swap;
@@ -64,7 +64,7 @@
 
 @font-face {
 	font-family: "Schibsted Grotesk";
-	src: url("assets/fonts/golos-text-cyrillic.woff2") format("woff2");
+	src: url("/assets/fonts/golos-text-cyrillic.woff2") format("woff2");
 	font-style: normal;
 	font-weight: 400 700;
 	font-display: swap;
