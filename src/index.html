@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang }}">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{{ meta.title }}</title>
+	<meta name="description" content="{{ meta.description }}">
+	<meta name="author" content="Nate Fuller">
+	<meta name="theme-color" content="#E7E8EF">
+	<script>
+		// Before first paint: apply a saved dark theme, and on the root URL send first-time
+		// visitors to their browser's language (or to the language they picked before).
+		(function () {
+			var root = document.documentElement;
+			try {
+				if (localStorage.getItem("theme") === "dark") root.dataset.theme = "dark";
+				if (location.pathname !== "/") return;
+				var paths = {{ page.locale_paths | raw }};
+				var target = paths[localStorage.getItem("lang")];
+				var tags = navigator.languages || [navigator.language];
+				for (var i = 0; i < tags.length && !target; i++) {
+					var tag = String(tags[i]).toLowerCase();
+					target = paths[tag] || paths[tag.split("-")[0]];
+				}
+				if (target && target !== "/") location.replace(target + location.hash);
+			} catch (e) {}
+		})();
+	</script>
+	<link rel="canonical" href="{{ page.url }}">
+{{ page.hreflang_links | raw }}
+	<meta property="og:type" content="profile">
+	<meta property="og:site_name" content="ohhnate">
+	<meta property="og:url" content="{{ page.url }}">
+	<meta property="og:title" content="{{ meta.title }}">
+	<meta property="og:description" content="{{ meta.og_description }}">
+	<meta property="og:locale" content="{{ page.og_locale }}">
+{{ page.og_locale_alternates | raw }}
+	<meta property="og:image" content="https://ohhnate.dev/assets/og.png">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
+	<meta property="og:image:alt" content="{{ meta.image_alt }}">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:image:alt" content="{{ meta.image_alt }}">
+	<link rel="icon" href="/favicon.ico" sizes="48x48">
+	<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+	<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+{{ page.preloads | raw }}
+	<link rel="stylesheet" href="/styles.css">
+	<script src="/assets/site.js" defer></script>
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "ProfilePage",
+		"url": "{{ page.url }}",
+		"inLanguage": "{{ page.lang }}",
+		"mainEntity": {
+			"@type": "Person",
+			"@id": "https://ohhnate.dev/#nate",
+			"name": "Nate Fuller",
+			"url": "https://ohhnate.dev/",
+			"description": {{ meta.ld_description | json }},
+			"sameAs": [
+				"https://github.com/ohhnate",
+				"https://ohhnate.itch.io",
+				"https://www.linkedin.com/in/samuel-fuller1/"
+			]
+		}
+	}
+	</script>
+</head>
+<body>
+	<a class="skip" href="#content">{{ ui.skip }}</a>
+
+	<header class="top">
+		<a class="mark" href="#top" aria-label="{{ ui.home_label }}">
+			<svg viewBox="0 0 30 12" width="30" height="12" aria-hidden="true"><rect class="era-air-force" width="8" height="12"/><rect class="era-besto" x="11" width="8" height="12"/><rect class="era-aws" x="22" width="8" height="12"/></svg>
+			ohhnate
+		</a>
+		<div class="top-tools">
+			<nav aria-label="{{ ui.sections_label }}">
+				<a href="#work">{{ nav.work }}</a>
+				<a href="#experience">{{ nav.experience }}</a>
+				<a href="#contact">{{ nav.contact }}</a>
+			</nav>
+			<details class="lang-menu">
+				<summary><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9s1.3-6.4 3.8-9Z"/></svg><span class="visually-hidden">{{ ui.language }}: </span>{{ page.lang_name }}</summary>
+				<ul>
+{{ page.lang_items | raw }}
+				</ul>
+			</details>
+			<button class="theme-toggle" type="button" aria-pressed="false" hidden>
+				<svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+				<svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+				<span class="visually-hidden">{{ ui.dark_mode }}</span>
+			</button>
+		</div>
+	</header>
+
+	<main id="content">
+		<section class="hero" aria-labelledby="name">
+			<h1 id="name">Nate Fuller</h1>
+			<div class="hero-text">
+				<p class="lede">{{ hero.lede }}</p>
+				<div>
+					<p class="intro">{{ hero.intro }}</p>
+					<p class="actions"><a class="button" href="mailto:contact@ohhnate.dev">{{ hero.email }}</a></p>
+				</div>
+			</div>
+
+			<figure class="meter" style="--months: {{ page.months }}" aria-labelledby="meter-caption">
+				<span class="meter-row-name meter-row-work">{{ meter.work }}</span>
+				<span class="meter-row-name meter-row-school">{{ meter.school }}</span>
+				<div class="meter-timeline" aria-hidden="true">
+					<span class="meter-label meter-label-work" style="--from: 1"><span class="full">{{ jobs.usaf.name }}</span><span class="short">{{ meter.usaf_short }}</span></span>
+					<span class="meter-label meter-label-work" style="--from: 106"><span class="full">Besto Games</span><span class="short">Besto</span></span>
+					<span class="meter-label meter-label-work meter-label-ongoing" style="--from: 162">AWS</span>
+
+					<div class="meter-cells meter-cells-work">
+						<i class="era-air-force" style="--from: 1; --span: 76"></i>
+						<i class="era-besto" style="--from: 106; --span: 56"></i>
+						<i class="era-aws ongoing" style="--from: 162"></i>
+					</div>
+					<div class="meter-cells meter-cells-school">
+						<i class="era-school" style="--from: 77; --span: 32"></i>
+						<i class="era-school" style="--from: 109; --span: 27"></i>
+					</div>
+
+					<span class="meter-label meter-label-school" style="--from: 77"><span class="full">Butte College</span><span class="short">Butte</span></span>
+					<span class="meter-label meter-label-school" style="--from: 109"><span class="full">Fisher College</span><span class="short">Fisher</span></span>
+
+					<span class="meter-year" style="--from: 1">2012</span>
+					<span class="meter-year" style="--from: 25">2014</span>
+					<span class="meter-year" style="--from: 49">2016</span>
+					<span class="meter-year" style="--from: 73">2018</span>
+					<span class="meter-year" style="--from: 97">2020</span>
+					<span class="meter-year" style="--from: 121">2022</span>
+					<span class="meter-year" style="--from: 145">2024</span>
+					<span class="meter-year" style="--from: 169">2026</span>
+				</div>
+				<figcaption id="meter-caption" class="visually-hidden">{{ meter.summary }}</figcaption>
+			</figure>
+		</section>
+
+		<section id="work" aria-labelledby="work-title">
+			<h2 id="work-title">{{ work.title }}</h2>
+
+			<article class="project era-besto">
+				<a class="project-media" href="https://store.steampowered.com/app/1742020/Idol_Showdown/">
+					<img src="/assets/idol-showdown.webp" srcset="/assets/idol-showdown-640.webp 640w, /assets/idol-showdown.webp 1280w" sizes="(max-width: 52rem) 100vw, 640px" width="1280" height="720" loading="lazy" alt="{{ idol.alt }}">
+				</a>
+				<div class="project-body">
+					<h3>Idol Showdown</h3>
+					<p>{{ idol.p1 }}</p>
+					<p>{{ idol.p2 }}</p>
+					<dl class="facts">
+						<div><dt>{{ facts.years }}</dt><dd>{{ jobs.besto.when }}</dd></div>
+						<div><dt>{{ facts.built_with }}</dt><dd>Unity, C#, C++, SDL, Wwise</dd></div>
+					</dl>
+					<ul class="links">
+						<li><a href="https://store.steampowered.com/app/1742020/Idol_Showdown/">{{ idol.play }}</a></li>
+						<li><a href="https://www.youtube.com/watch?v=lkcTeZyknQg">{{ idol.trailer }}</a></li>
+					</ul>
+				</div>
+			</article>
+
+			<article class="project era-besto">
+				<figure class="project-media rollback" aria-labelledby="rollback-caption">
+					<div class="rollback-row">
+						<span class="rollback-name">{{ bestonet.guessing }}</span>
+						<ol class="rollback-frames" aria-hidden="true">
+							<li class="f-confirmed"></li><li class="f-confirmed"></li><li class="f-confirmed"></li><li class="f-confirmed"></li><li class="f-confirmed"></li><li class="f-confirmed"></li><li class="f-confirmed"></li>
+							<li class="f-predicted"></li><li class="f-predicted"></li><li class="f-predicted"></li><li class="f-predicted"></li><li class="f-predicted"></li>
+						</ol>
+					</div>
+					<div class="rollback-row">
+						<span class="rollback-name">{{ bestonet.corrected }}</span>
+						<ol class="rollback-frames" aria-hidden="true">
+							<li class="f-confirmed"></li><li class="f-confirmed"></li><li class="f-confirmed"></li><li class="f-confirmed"></li><li class="f-confirmed"></li><li class="f-confirmed"></li><li class="f-confirmed"></li>
+							<li class="f-resim f-late"></li><li class="f-resim"></li><li class="f-resim"></li><li class="f-resim"></li><li class="f-resim"></li>
+						</ol>
+					</div>
+					<ul class="rollback-key">
+						<li><i class="f-confirmed"></i>{{ bestonet.key_confirmed }}</li>
+						<li><i class="f-predicted"></i>{{ bestonet.key_predicted }}</li>
+						<li><i class="f-resim"></i>{{ bestonet.key_resim }}</li>
+						<li><i class="f-late-key"></i>{{ bestonet.key_late }}</li>
+					</ul>
+					<figcaption id="rollback-caption">{{ bestonet.caption }}</figcaption>
+				</figure>
+				<div class="project-body">
+					<h3>BestoNet</h3>
+					<p>{{ bestonet.p1 }}</p>
+					<p>{{ bestonet.p2 }}</p>
+					<dl class="facts">
+						<div><dt>{{ facts.open_sourced }}</dt><dd>2024</dd></div>
+						<div><dt>{{ facts.built_with }}</dt><dd>C#, Unity, Steamworks</dd></div>
+					</dl>
+					<ul class="links">
+						<li><a href="https://github.com/BestoGames/BestoNet">{{ bestonet.source }}</a></li>
+					</ul>
+				</div>
+			</article>
+
+			<h3 class="work-subhead">{{ games.title }}</h3>
+			<ul class="games">
+				<li>
+					<a href="https://masterjonald.itch.io/foxtales"><img src="/assets/foxtales.webp" srcset="/assets/foxtales-315.webp 315w, /assets/foxtales.webp 630w" sizes="(max-width: 52rem) 50vw, 270px" width="630" height="500" alt="" loading="lazy"><span class="game-title">FoxTales</span></a>
+					<p>{{ games.foxtales }}</p>
+				</li>
+				<li>
+					<a href="https://ohhnate.itch.io/bau-bau-bustin-out"><img src="/assets/bau-bau-bustin-out.webp" srcset="/assets/bau-bau-bustin-out-315.webp 315w, /assets/bau-bau-bustin-out.webp 630w" sizes="(max-width: 52rem) 50vw, 270px" width="630" height="500" alt="" loading="lazy"><span class="game-title">Bau Bau Bustin Out</span></a>
+					<p>{{ games.baubau }}</p>
+				</li>
+				<li>
+					<a href="https://nullctipus.itch.io/lazulightless"><img src="/assets/lightless.webp" srcset="/assets/lightless-315.webp 315w, /assets/lightless.webp 630w" sizes="(max-width: 52rem) 50vw, 270px" width="630" height="500" alt="" loading="lazy"><span class="game-title">Lightless</span></a>
+					<p>{{ games.lightless }}</p>
+				</li>
+				<li>
+					<a href="https://ohhnate.itch.io/carrot-catcher"><img src="/assets/carrot-catcher.webp" srcset="/assets/carrot-catcher-315.webp 315w, /assets/carrot-catcher.webp 630w" sizes="(max-width: 52rem) 50vw, 270px" width="630" height="500" alt="" loading="lazy"><span class="game-title">Carrot Catcher</span></a>
+					<p>{{ games.carrot }}</p>
+				</li>
+			</ul>
+
+			<h3 class="work-subhead">{{ tools.title }}</h3>
+			<ul class="tools">
+				<li><h4>BestoEngine</h4><p>{{ tools.bestoengine }}</p></li>
+				<li><h4><a href="https://github.com/ohhnate/UnityHelpers">UnityHelpers</a></h4><p>{{ tools.unityhelpers }}</p></li>
+				<li><h4>{{ tools.in_progress_title }}</h4><p>{{ tools.in_progress }}</p></li>
+			</ul>
+		</section>
+
+		<section id="experience" aria-labelledby="experience-title">
+			<h2 id="experience-title">{{ experience.title }}</h2>
+			<ol class="jobs">
+				<li class="era-aws">
+					<p class="job-when">{{ jobs.aws.when }}</p>
+					<div>
+						<h3>{{ jobs.aws.name }}</h3>
+						<p class="job-role">{{ jobs.aws.role }}</p>
+						<p>{{ jobs.aws.desc }}</p>
+					</div>
+				</li>
+				<li class="era-besto">
+					<p class="job-when">{{ jobs.besto.when }}</p>
+					<div>
+						<h3>Besto Games</h3>
+						<p class="job-role">{{ jobs.besto.role }}</p>
+						<p>{{ jobs.besto.desc }}</p>
+					</div>
+				</li>
+				<li class="era-school">
+					<p class="job-when">{{ jobs.fisher.when }}</p>
+					<div>
+						<h3>Fisher College</h3>
+						<p class="job-role">{{ jobs.fisher.degree }}</p>
+					</div>
+				</li>
+				<li class="era-school">
+					<p class="job-when">{{ jobs.butte.when }}</p>
+					<div>
+						<h3>Butte College</h3>
+						<p class="job-role">{{ jobs.butte.degree }}</p>
+					</div>
+				</li>
+				<li class="era-air-force">
+					<p class="job-when">{{ jobs.usaf.when }}</p>
+					<div>
+						<h3>{{ jobs.usaf.name }}</h3>
+						<p class="job-role">{{ jobs.usaf.role }}</p>
+						<p>{{ jobs.usaf.desc }}</p>
+					</div>
+				</li>
+			</ol>
+		</section>
+
+		<section id="contact" aria-labelledby="contact-title">
+			<h2 id="contact-title">{{ contact.title }}</h2>
+			<p>{{ contact.text }}</p>
+			<p class="email"><a href="mailto:contact@ohhnate.dev">contact@ohhnate.dev</a></p>
+			<ul class="elsewhere">
+				<li><a href="https://github.com/ohhnate" rel="me">GitHub</a></li>
+				<li><a href="https://ohhnate.itch.io" rel="me">itch.io</a></li>
+				<li><a href="https://www.linkedin.com/in/samuel-fuller1/" rel="me">LinkedIn</a></li>
+			</ul>
+		</section>
+	</main>
+
+	<footer class="bottom">
+		<p>© 2026 Nate Fuller</p>
+	</footer>
+</body>
+</html>

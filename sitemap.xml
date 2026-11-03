@@ -1,6 +1,138 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 	<url>
 		<loc>https://ohhnate.dev/</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://ohhnate.dev/"/>
+		<xhtml:link rel="alternate" hreflang="zh-CN" href="https://ohhnate.dev/zh-cn/"/>
+		<xhtml:link rel="alternate" hreflang="zh" href="https://ohhnate.dev/zh-cn/"/>
+		<xhtml:link rel="alternate" hreflang="zh-HK" href="https://ohhnate.dev/zh-hk/"/>
+		<xhtml:link rel="alternate" hreflang="ja" href="https://ohhnate.dev/ja/"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://ohhnate.dev/es/"/>
+		<xhtml:link rel="alternate" hreflang="pt-BR" href="https://ohhnate.dev/pt-br/"/>
+		<xhtml:link rel="alternate" hreflang="pt" href="https://ohhnate.dev/pt-br/"/>
+		<xhtml:link rel="alternate" hreflang="de" href="https://ohhnate.dev/de/"/>
+		<xhtml:link rel="alternate" hreflang="fr" href="https://ohhnate.dev/fr/"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://ohhnate.dev/ru/"/>
+		<xhtml:link rel="alternate" hreflang="x-default" href="https://ohhnate.dev/"/>
+	</url>
+	<url>
+		<loc>https://ohhnate.dev/zh-cn/</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://ohhnate.dev/"/>
+		<xhtml:link rel="alternate" hreflang="zh-CN" href="https://ohhnate.dev/zh-cn/"/>
+		<xhtml:link rel="alternate" hreflang="zh" href="https://ohhnate.dev/zh-cn/"/>
+		<xhtml:link rel="alternate" hreflang="zh-HK" href="https://ohhnate.dev/zh-hk/"/>
+		<xhtml:link rel="alternate" hreflang="ja" href="https://ohhnate.dev/ja/"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://ohhnate.dev/es/"/>
+		<xhtml:link rel="alternate" hreflang="pt-BR" href="https://ohhnate.dev/pt-br/"/>
+		<xhtml:link rel="alternate" hreflang="pt" href="https://ohhnate.dev/pt-br/"/>
+		<xhtml:link rel="alternate" hreflang="de" href="https://ohhnate.dev/de/"/>
+		<xhtml:link rel="alternate" hreflang="fr" href="https://ohhnate.dev/fr/"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://ohhnate.dev/ru/"/>
+		<xhtml:link rel="alternate" hreflang="x-default" href="https://ohhnate.dev/"/>
+	</url>
+	<url>
+		<loc>https://ohhnate.dev/zh-hk/</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://ohhnate.dev/"/>
+		<xhtml:link rel="alternate" hreflang="zh-CN" href="https://ohhnate.dev/zh-cn/"/>
+		<xhtml:link rel="alternate" hreflang="zh" href="https://ohhnate.dev/zh-cn/"/>
+		<xhtml:link rel="alternate" hreflang="zh-HK" href="https://ohhnate.dev/zh-hk/"/>
+		<xhtml:link rel="alternate" hreflang="ja" href="https://ohhnate.dev/ja/"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://ohhnate.dev/es/"/>
+		<xhtml:link rel="alternate" hreflang="pt-BR" href="https://ohhnate.dev/pt-br/"/>
+		<xhtml:link rel="alternate" hreflang="pt" href="https://ohhnate.dev/pt-br/"/>
+		<xhtml:link rel="alternate" hreflang="de" href="https://ohhnate.dev/de/"/>
+		<xhtml:link rel="alternate" hreflang="fr" href="https://ohhnate.dev/fr/"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://ohhnate.dev/ru/"/>
+		<xhtml:link rel="alternate" hreflang="x-default" href="https://ohhnate.dev/"/>
+	</url>
+	<url>
+		<loc>https://ohhnate.dev/ja/</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://ohhnate.dev/"/>
+		<xhtml:link rel="alternate" hreflang="zh-CN" href="https://ohhnate.dev/zh-cn/"/>
+		<xhtml:link rel="alternate" hreflang="zh" href="https://ohhnate.dev/zh-cn/"/>
+		<xhtml:link rel="alternate" hreflang="zh-HK" href="https://ohhnate.dev/zh-hk/"/>
+		<xhtml:link rel="alternate" hreflang="ja" href="https://ohhnate.dev/ja/"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://ohhnate.dev/es/"/>
+		<xhtml:link rel="alternate" hreflang="pt-BR" href="https://ohhnate.dev/pt-br/"/>
+		<xhtml:link rel="alternate" hreflang="pt" href="https://ohhnate.dev/pt-br/"/>
+		<xhtml:link rel="alternate" hreflang="de" href="https://ohhnate.dev/de/"/>
+		<xhtml:link rel="alternate" hreflang="fr" href="https://ohhnate.dev/fr/"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://ohhnate.dev/ru/"/>
+		<xhtml:link rel="alternate" hreflang="x-default" href="https://ohhnate.dev/"/>
+	</url>
+	<url>
+		<loc>https://ohhnate.dev/es/</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://ohhnate.dev/"/>
+		<xhtml:link rel="alternate" hreflang="zh-CN" href="https://ohhnate.dev/zh-cn/"/>
+		<xhtml:link rel="alternate" hreflang="zh" href="https://ohhnate.dev/zh-cn/"/>
+		<xhtml:link rel="alternate" hreflang="zh-HK" href="https://ohhnate.dev/zh-hk/"/>
+		<xhtml:link rel="alternate" hreflang="ja" href="https://ohhnate.dev/ja/"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://ohhnate.dev/es/"/>
+		<xhtml:link rel="alternate" hreflang="pt-BR" href="https://ohhnate.dev/pt-br/"/>
+		<xhtml:link rel="alternate" hreflang="pt" href="https://ohhnate.dev/pt-br/"/>
+		<xhtml:link rel="alternate" hreflang="de" href="https://ohhnate.dev/de/"/>
+		<xhtml:link rel="alternate" hreflang="fr" href="https://ohhnate.dev/fr/"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://ohhnate.dev/ru/"/>
+		<xhtml:link rel="alternate" hreflang="x-default" href="https://ohhnate.dev/"/>
+	</url>
+	<url>
+		<loc>https://ohhnate.dev/pt-br/</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://ohhnate.dev/"/>
+		<xhtml:link rel="alternate" hreflang="zh-CN" href="https://ohhnate.dev/zh-cn/"/>
+		<xhtml:link rel="alternate" hreflang="zh" href="https://ohhnate.dev/zh-cn/"/>
+		<xhtml:link rel="alternate" hreflang="zh-HK" href="https://ohhnate.dev/zh-hk/"/>
+		<xhtml:link rel="alternate" hreflang="ja" href="https://ohhnate.dev/ja/"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://ohhnate.dev/es/"/>
+		<xhtml:link rel="alternate" hreflang="pt-BR" href="https://ohhnate.dev/pt-br/"/>
+		<xhtml:link rel="alternate" hreflang="pt" href="https://ohhnate.dev/pt-br/"/>
+		<xhtml:link rel="alternate" hreflang="de" href="https://ohhnate.dev/de/"/>
+		<xhtml:link rel="alternate" hreflang="fr" href="https://ohhnate.dev/fr/"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://ohhnate.dev/ru/"/>
+		<xhtml:link rel="alternate" hreflang="x-default" href="https://ohhnate.dev/"/>
+	</url>
+	<url>
+		<loc>https://ohhnate.dev/de/</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://ohhnate.dev/"/>
+		<xhtml:link rel="alternate" hreflang="zh-CN" href="https://ohhnate.dev/zh-cn/"/>
+		<xhtml:link rel="alternate" hreflang="zh" href="https://ohhnate.dev/zh-cn/"/>
+		<xhtml:link rel="alternate" hreflang="zh-HK" href="https://ohhnate.dev/zh-hk/"/>
+		<xhtml:link rel="alternate" hreflang="ja" href="https://ohhnate.dev/ja/"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://ohhnate.dev/es/"/>
+		<xhtml:link rel="alternate" hreflang="pt-BR" href="https://ohhnate.dev/pt-br/"/>
+		<xhtml:link rel="alternate" hreflang="pt" href="https://ohhnate.dev/pt-br/"/>
+		<xhtml:link rel="alternate" hreflang="de" href="https://ohhnate.dev/de/"/>
+		<xhtml:link rel="alternate" hreflang="fr" href="https://ohhnate.dev/fr/"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://ohhnate.dev/ru/"/>
+		<xhtml:link rel="alternate" hreflang="x-default" href="https://ohhnate.dev/"/>
+	</url>
+	<url>
+		<loc>https://ohhnate.dev/fr/</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://ohhnate.dev/"/>
+		<xhtml:link rel="alternate" hreflang="zh-CN" href="https://ohhnate.dev/zh-cn/"/>
+		<xhtml:link rel="alternate" hreflang="zh" href="https://ohhnate.dev/zh-cn/"/>
+		<xhtml:link rel="alternate" hreflang="zh-HK" href="https://ohhnate.dev/zh-hk/"/>
+		<xhtml:link rel="alternate" hreflang="ja" href="https://ohhnate.dev/ja/"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://ohhnate.dev/es/"/>
+		<xhtml:link rel="alternate" hreflang="pt-BR" href="https://ohhnate.dev/pt-br/"/>
+		<xhtml:link rel="alternate" hreflang="pt" href="https://ohhnate.dev/pt-br/"/>
+		<xhtml:link rel="alternate" hreflang="de" href="https://ohhnate.dev/de/"/>
+		<xhtml:link rel="alternate" hreflang="fr" href="https://ohhnate.dev/fr/"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://ohhnate.dev/ru/"/>
+		<xhtml:link rel="alternate" hreflang="x-default" href="https://ohhnate.dev/"/>
+	</url>
+	<url>
+		<loc>https://ohhnate.dev/ru/</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://ohhnate.dev/"/>
+		<xhtml:link rel="alternate" hreflang="zh-CN" href="https://ohhnate.dev/zh-cn/"/>
+		<xhtml:link rel="alternate" hreflang="zh" href="https://ohhnate.dev/zh-cn/"/>
+		<xhtml:link rel="alternate" hreflang="zh-HK" href="https://ohhnate.dev/zh-hk/"/>
+		<xhtml:link rel="alternate" hreflang="ja" href="https://ohhnate.dev/ja/"/>
+		<xhtml:link rel="alternate" hreflang="es" href="https://ohhnate.dev/es/"/>
+		<xhtml:link rel="alternate" hreflang="pt-BR" href="https://ohhnate.dev/pt-br/"/>
+		<xhtml:link rel="alternate" hreflang="pt" href="https://ohhnate.dev/pt-br/"/>
+		<xhtml:link rel="alternate" hreflang="de" href="https://ohhnate.dev/de/"/>
+		<xhtml:link rel="alternate" hreflang="fr" href="https://ohhnate.dev/fr/"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://ohhnate.dev/ru/"/>
+		<xhtml:link rel="alternate" hreflang="x-default" href="https://ohhnate.dev/"/>
 	</url>
 </urlset>

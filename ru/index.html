@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Nate Fuller — игровой и низкоуровневый программист</title>
+	<meta name="description" content="Nate Fuller — игровой и низкоуровневый программист: rollback-неткод, движки и распределённые хранилища. Был системным программистом Idol Showdown, сейчас в AWS.">
+	<meta name="author" content="Nate Fuller">
+	<meta name="theme-color" content="#E7E8EF">
+	<script>
+		// Before first paint: apply a saved dark theme, and on the root URL send first-time
+		// visitors to their browser's language (or to the language they picked before).
+		(function () {
+			var root = document.documentElement;
+			try {
+				if (localStorage.getItem("theme") === "dark") root.dataset.theme = "dark";
+				if (location.pathname !== "/") return;
+				var paths = {"en": "/", "zh-cn": "/zh-cn/", "zh": "/zh-cn/", "zh-hk": "/zh-hk/", "zh-mo": "/zh-hk/", "zh-hant-hk": "/zh-hk/", "zh-hant-mo": "/zh-hk/", "yue": "/zh-hk/", "ja": "/ja/", "es": "/es/", "pt-br": "/pt-br/", "pt": "/pt-br/", "de": "/de/", "fr": "/fr/", "ru": "/ru/"};
+				var target = paths[localStorage.getItem("lang")];
+				var tags = navigator.languages || [navigator.language];
+				for (var i = 0; i < tags.length && !target; i++) {
+					var tag = String(tags[i]).toLowerCase();
+					target = paths[tag] || paths[tag.split("-")[0]];
+				}
+				if (target && target !== "/") location.replace(target + location.hash);
+			} catch (e) {}
+		})();
+	</script>
+	<link rel="canonical" href="https://ohhnate.dev/ru/">
+	<link rel="alternate" hreflang="en" href="https://ohhnate.dev/">
+	<link rel="alternate" hreflang="zh-CN" href="https://ohhnate.dev/zh-cn/">
+	<link rel="alternate" hreflang="zh" href="https://ohhnate.dev/zh-cn/">
+	<link rel="alternate" hreflang="zh-HK" href="https://ohhnate.dev/zh-hk/">
+	<link rel="alternate" hreflang="ja" href="https://ohhnate.dev/ja/">
+	<link rel="alternate" hreflang="es" href="https://ohhnate.dev/es/">
+	<link rel="alternate" hreflang="pt-BR" href="https://ohhnate.dev/pt-br/">
+	<link rel="alternate" hreflang="pt" href="https://ohhnate.dev/pt-br/">
+	<link rel="alternate" hreflang="de" href="https://ohhnate.dev/de/">
+	<link rel="alternate" hreflang="fr" href="https://ohhnate.dev/fr/">
+	<link rel="alternate" hreflang="ru" href="https://ohhnate.dev/ru/">
+	<link rel="alternate" hreflang="x-default" href="https://ohhnate.dev/">
+	<meta property="og:type" content="profile">
+	<meta property="og:site_name" content="ohhnate">
+	<meta property="og:url" content="https://ohhnate.dev/ru/">
+	<meta property="og:title" content="Nate Fuller — игровой и низкоуровневый программист">
+	<meta property="og:description" content="Игровой и низкоуровневый программист: rollback-неткод, игровые движки и распределённые хранилища.">
+	<meta property="og:locale" content="ru_RU">
+	<meta property="og:locale:alternate" content="en_US">
+	<meta property="og:locale:alternate" content="zh_CN">
+	<meta property="og:locale:alternate" content="zh_HK">
+	<meta property="og:locale:alternate" content="ja_JP">
+	<meta property="og:locale:alternate" content="es_ES">
+	<meta property="og:locale:alternate" content="pt_BR">
+	<meta property="og:locale:alternate" content="de_DE">
+	<meta property="og:locale:alternate" content="fr_FR">
+	<meta property="og:image" content="https://ohhnate.dev/assets/og.png">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
+	<meta property="og:image:alt" content="Nate Fuller, игровой и низкоуровневый программист, и его карьера в виде шкалы кадров.">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:image:alt" content="Nate Fuller, игровой и низкоуровневый программист, и его карьера в виде шкалы кадров.">
+	<link rel="icon" href="/favicon.ico" sizes="48x48">
+	<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+	<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+	<link rel="preload" href="/assets/fonts/anybody-italic.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="/assets/fonts/schibsted-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="stylesheet" href="/styles.css">
+	<script src="/assets/site.js" defer></script>
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "ProfilePage",
+		"url": "https://ohhnate.dev/ru/",
+		"inLanguage": "ru",
+		"mainEntity": {
+			"@type": "Person",
+			"@id": "https://ohhnate.dev/#nate",
+			"name": "Nate Fuller",
+			"url": "https://ohhnate.dev/",
+			"description": "Игровой и низкоуровневый программист, который разрабатывает rollback-неткод, игровые движки и распределённые хранилища.",
+			"sameAs": [
+				"https://github.com/ohhnate",
+				"https://ohhnate.itch.io",
+				"https://www.linkedin.com/in/samuel-fuller1/"
+			]
+		}
+	}
+	</script>
+</head>
+<body>
+	<a class="skip" href="#content">Перейти к содержимому</a>
+
+	<header class="top">
+		<a class="mark" href="#top" aria-label="ohhnate, в начало страницы">
+			<svg viewBox="0 0 30 12" width="30" height="12" aria-hidden="true"><rect class="era-air-force" width="8" height="12"/><rect class="era-besto" x="11" width="8" height="12"/><rect class="era-aws" x="22" width="8" height="12"/></svg>
+			ohhnate
+		</a>
+		<div class="top-tools">
+			<nav aria-label="Разделы">
+				<a href="#work">Проекты</a>
+				<a href="#experience">Опыт</a>
+				<a href="#contact">Контакты</a>
+			</nav>
+			<details class="lang-menu">
+				<summary><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9s1.3-6.4 3.8-9Z"/></svg><span class="visually-hidden">Язык: </span>Русский</summary>
+				<ul>
+					<li><a href="/" hreflang="en-US" lang="en-US" data-lang="en">English</a></li>
+					<li><a href="/zh-cn/" hreflang="zh-CN" lang="zh-CN" data-lang="zh-cn">简体中文</a></li>
+					<li><a href="/zh-hk/" hreflang="zh-HK" lang="zh-HK" data-lang="zh-hk">廣東話</a></li>
+					<li><a href="/ja/" hreflang="ja" lang="ja" data-lang="ja">日本語</a></li>
+					<li><a href="/es/" hreflang="es" lang="es" data-lang="es">Español</a></li>
+					<li><a href="/pt-br/" hreflang="pt-BR" lang="pt-BR" data-lang="pt-br">Português (Brasil)</a></li>
+					<li><a href="/de/" hreflang="de" lang="de" data-lang="de">Deutsch</a></li>
+					<li><a href="/fr/" hreflang="fr" lang="fr" data-lang="fr">Français</a></li>
+					<li><a href="/ru/" hreflang="ru" lang="ru" data-lang="ru" aria-current="true">Русский</a></li>
+				</ul>
+			</details>
+			<button class="theme-toggle" type="button" aria-pressed="false" hidden>
+				<svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+				<svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+				<span class="visually-hidden">Тёмная тема</span>
+			</button>
+		</div>
+	</header>
+
+	<main id="content">
+		<section class="hero" aria-labelledby="name">
+			<h1 id="name">Nate Fuller</h1>
+			<div class="hero-text">
+				<p class="lede">Игровой и низкоуровневый программист. Пишу код, который должен работать быстро и точно: rollback-неткод, игровые движки и распределённые хранилища.</p>
+				<div>
+					<p class="intro">Более четырёх лет работал над Idol Showdown в Besto Games. Сейчас занимаюсь распределённым блочным хранилищем в AWS и открыт к новым проектам и консалтингу.</p>
+					<p class="actions"><a class="button" href="mailto:contact@ohhnate.dev">Написать мне</a></p>
+				</div>
+			</div>
+
+			<figure class="meter" style="--months: 179" aria-labelledby="meter-caption">
+				<span class="meter-row-name meter-row-work">Работа</span>
+				<span class="meter-row-name meter-row-school">Учёба</span>
+				<div class="meter-timeline" aria-hidden="true">
+					<span class="meter-label meter-label-work" style="--from: 1"><span class="full">Военно-воздушные силы США</span><span class="short">ВВС США</span></span>
+					<span class="meter-label meter-label-work" style="--from: 106"><span class="full">Besto Games</span><span class="short">Besto</span></span>
+					<span class="meter-label meter-label-work meter-label-ongoing" style="--from: 162">AWS</span>
+
+					<div class="meter-cells meter-cells-work">
+						<i class="era-air-force" style="--from: 1; --span: 76"></i>
+						<i class="era-besto" style="--from: 106; --span: 56"></i>
+						<i class="era-aws ongoing" style="--from: 162"></i>
+					</div>
+					<div class="meter-cells meter-cells-school">
+						<i class="era-school" style="--from: 77; --span: 32"></i>
+						<i class="era-school" style="--from: 109; --span: 27"></i>
+					</div>
+
+					<span class="meter-label meter-label-school" style="--from: 77"><span class="full">Butte College</span><span class="short">Butte</span></span>
+					<span class="meter-label meter-label-school" style="--from: 109"><span class="full">Fisher College</span><span class="short">Fisher</span></span>
+
+					<span class="meter-year" style="--from: 1">2012</span>
+					<span class="meter-year" style="--from: 25">2014</span>
+					<span class="meter-year" style="--from: 49">2016</span>
+					<span class="meter-year" style="--from: 73">2018</span>
+					<span class="meter-year" style="--from: 97">2020</span>
+					<span class="meter-year" style="--from: 121">2022</span>
+					<span class="meter-year" style="--from: 145">2024</span>
+					<span class="meter-year" style="--from: 169">2026</span>
+				</div>
+				<figcaption id="meter-caption" class="visually-hidden">Моя карьера в виде шкалы кадров, где одна ячейка — один месяц, начиная с января 2012 года: Военно-воздушные силы США в 2012–2018 годах, Butte College и Fisher College в 2018–2023, Besto Games в 2020–2025 и AWS с 2025 года по настоящее время.</figcaption>
+			</figure>
+		</section>
+
+		<section id="work" aria-labelledby="work-title">
+			<h2 id="work-title">Проекты</h2>
+
+			<article class="project era-besto">
+				<a class="project-media" href="https://store.steampowered.com/app/1742020/Idol_Showdown/">
+					<img src="/assets/idol-showdown.webp" srcset="/assets/idol-showdown-640.webp 640w, /assets/idol-showdown.webp 1280w" sizes="(max-width: 52rem) 100vw, 640px" width="1280" height="720" loading="lazy" alt="Idol Showdown: два бойца обмениваются ударами перед воротами тории на арене с бамбуковым святилищем.">
+				</a>
+				<div class="project-body">
+					<h3>Idol Showdown</h3>
+					<p>Бесплатный фанатский файтинг по hololive с rollback-неткодом. У игры более 1,2 миллиона загрузок и оценка 9/10 в Steam.</p>
+					<p>В Besto Games я был системным программистом: сделал обработку ввода на SDL и интеграцию звука через Wwise, работал над интерфейсом, писал инструменты отладки и отслеживания внутри Unity Editor и создал баг-трекер, который отправлял отчёты дизайнеров прямо в наш CI/CD-пайплайн.</p>
+					<dl class="facts">
+						<div><dt>Годы</dt><dd>2020–2025</dd></div>
+						<div><dt>Технологии</dt><dd>Unity, C#, C++, SDL, Wwise</dd></div>
+					</dl>
+					<ul class="links">
+						<li><a href="https://store.steampowered.com/app/1742020/Idol_Showdown/">Играть бесплатно в Steam</a></li>
+						<li><a href="https://www.youtube.com/watch?v=lkcTeZyknQg">Смотреть трейлер</a></li>
+					</ul>
+				</div>
+			</article>
+
+			<article class="project era-besto">
+				<figure class="project-media rollback" aria-labelledby="rollback-caption">
+					<div class="rollback-row">
+						<span class="rollback-name">Предсказание</span>
+						<ol class="rollback-frames" aria-hidden="true">
+							<li class="f-confirmed"></li><li class="f-confirmed"></li><li class="f-confirmed"></li><li class="f-confirmed"></li><li class="f-confirmed"></li><li class="f-confirmed"></li><li class="f-confirmed"></li>
+							<li class="f-predicted"></li><li class="f-predicted"></li><li class="f-predicted"></li><li class="f-predicted"></li><li class="f-predicted"></li>
+						</ol>
+					</div>
+					<div class="rollback-row">
+						<span class="rollback-name">Исправление</span>
+						<ol class="rollback-frames" aria-hidden="true">
+							<li class="f-confirmed"></li><li class="f-confirmed"></li><li class="f-confirmed"></li><li class="f-confirmed"></li><li class="f-confirmed"></li><li class="f-confirmed"></li><li class="f-confirmed"></li>
+							<li class="f-resim f-late"></li><li class="f-resim"></li><li class="f-resim"></li><li class="f-resim"></li><li class="f-resim"></li>
+						</ol>
+					</div>
+					<ul class="rollback-key">
+						<li><i class="f-confirmed"></i>Подтверждённый ввод</li>
+						<li><i class="f-predicted"></i>Предсказанный ввод</li>
+						<li><i class="f-resim"></i>Повторная симуляция</li>
+						<li><i class="f-late-key"></i>Приходит запоздавший ввод</li>
+					</ul>
+					<figcaption id="rollback-caption">Последние пять кадров просчитаны по предсказанию ввода соперника. Когда приходит его настоящий ввод для первого из них, игра откатывается к последнему подтверждённому кадру и заново симулирует все пять, прежде чем отрисовать следующий.</figcaption>
+				</figure>
+				<div class="project-body">
+					<h3>BestoNet</h3>
+					<p>Открытый rollback-неткод для Unity на C#, написанный для Idol Showdown. Он заменил интеграцию GGPO в игре, чтобы избавиться от задержек из-за ретрансляции и багов при откатах на несколько кадров.</p>
+					<p>Работал над спекулятивным сохранением кадров, предсказанием ввода, синхронизацией часов обоих пиров и буфером ввода на 7 кадров, который справляется с потерянными и пришедшими не по порядку пакетами.</p>
+					<dl class="facts">
+						<div><dt>Код открыт</dt><dd>2024</dd></div>
+						<div><dt>Технологии</dt><dd>C#, Unity, Steamworks</dd></div>
+					</dl>
+					<ul class="links">
+						<li><a href="https://github.com/BestoGames/BestoNet">Исходный код на GitHub</a></li>
+					</ul>
+				</div>
+			</article>
+
+			<h3 class="work-subhead">Небольшие игры</h3>
+			<ul class="games">
+				<li>
+					<a href="https://masterjonald.itch.io/foxtales"><img src="/assets/foxtales.webp" srcset="/assets/foxtales-315.webp 315w, /assets/foxtales.webp 630w" sizes="(max-width: 52rem) 50vw, 270px" width="630" height="500" alt="" loading="lazy"><span class="game-title">FoxTales</span></a>
+					<p>NES-платформер в духе «Утиных историй», сделанный ко дню рождения Shirakami Fubuki. Вместе с MasterJonald, 2026.</p>
+				</li>
+				<li>
+					<a href="https://ohhnate.itch.io/bau-bau-bustin-out"><img src="/assets/bau-bau-bustin-out.webp" srcset="/assets/bau-bau-bustin-out-315.webp 315w, /assets/bau-bau-bustin-out.webp 630w" sizes="(max-width: 52rem) 50vw, 270px" width="630" height="500" alt="" loading="lazy"><span class="game-title">Bau Bau Bustin Out</span></a>
+					<p>Платформер с FuwaMoco о побеге из заточения. Вместе с Poppysicle, 2024.</p>
+				</li>
+				<li>
+					<a href="https://nullctipus.itch.io/lazulightless"><img src="/assets/lightless.webp" srcset="/assets/lightless-315.webp 315w, /assets/lightless.webp 630w" sizes="(max-width: 52rem) 50vw, 270px" width="630" height="500" alt="" loading="lazy"><span class="game-title">Lightless</span></a>
+					<p>Стелс-хоррор с головоломками: брошенная своим героем принцесса сбегает от похитителя. Вместе с Nullctipus и Gogibahp, 2023.</p>
+				</li>
+				<li>
+					<a href="https://ohhnate.itch.io/carrot-catcher"><img src="/assets/carrot-catcher.webp" srcset="/assets/carrot-catcher-315.webp 315w, /assets/carrot-catcher.webp 630w" sizes="(max-width: 52rem) 50vw, 270px" width="630" height="500" alt="" loading="lazy"><span class="game-title">Carrot Catcher</span></a>
+					<p>Небольшая головоломка на клетчатом поле с кроликом в главной роли. Вместе с Gogibahp, Poppysicle и Saitooo, 2022.</p>
+				</li>
+			</ul>
+
+			<h3 class="work-subhead">Движки и инструменты</h3>
+			<ul class="tools">
+				<li><h4>BestoEngine</h4><p>2D-движок на MonoGame с ECS и 2D-физикой, построенный вокруг детерминированного ядра: цикл с фиксированным тиком, хуки состояния для отката и библиотека вычислений с фиксированной запятой.</p></li>
+				<li><h4><a href="https://github.com/ohhnate/UnityHelpers">UnityHelpers</a></h4><p>Вспомогательные классы и системы, которые я переиспользую в проектах на Unity.</p></li>
+				<li><h4>В работе</h4><p>Groundwork, мой собственный 2D-движок на C# и Vulkan, и игра про оборону фермы, которую я делаю на нём вместе с друзьями.</p></li>
+			</ul>
+		</section>
+
+		<section id="experience" aria-labelledby="experience-title">
+			<h2 id="experience-title">Опыт</h2>
+			<ol class="jobs">
+				<li class="era-aws">
+					<p class="job-when">С 2025 года</p>
+					<div>
+						<h3>Amazon Web Services</h3>
+						<p class="job-role">Инженер-разработчик ПО, Elastic Block Store</p>
+						<p>Работаю над EBS Durability Engine на C++. Спроектировал пайплайн синхронизации метаданных для репликации между зонами доступности, вынес удаление интентов из пути записи в асинхронную сборку мусора, сделал метрики и оповещения для развёртывания B-Tree Clone и нашёл причины нестабильных интеграционных тестов: ошибки работы с памятью и гонки.</p>
+					</div>
+				</li>
+				<li class="era-besto">
+					<p class="job-when">2020–2025</p>
+					<div>
+						<h3>Besto Games</h3>
+						<p class="job-role">Системный программист, Idol Showdown</p>
+						<p>Разрабатывал ввод, звук, интерфейс и инструменты редактора для файтинга с 1,2 миллиона загрузок, а также работал над его rollback-неткодом.</p>
+					</div>
+				</li>
+				<li class="era-school">
+					<p class="job-when">2021–2023</p>
+					<div>
+						<h3>Fisher College</h3>
+						<p class="job-role">Бакалавр (B.S.) по программной инженерии</p>
+					</div>
+				</li>
+				<li class="era-school">
+					<p class="job-when">2018–2020</p>
+					<div>
+						<h3>Butte College</h3>
+						<p class="job-role">Ассоциированная степень (A.S.) по социальным и поведенческим наукам</p>
+					</div>
+				</li>
+				<li class="era-air-force">
+					<p class="job-when">2012–2018</p>
+					<div>
+						<h3>Военно-воздушные силы США</h3>
+						<p class="job-role">Менеджер по персоналу</p>
+						<p>Обрабатывал аттестационные отчёты на 4100 человек и разбирал запросы по специальным выплатам на сумму более 32 000 долларов в неделю. Награждён медалью ВВС «За достижения». Был выбран из более чем 500 кандидатов, чтобы обучать и наставлять 180 студентов вузов на авиабазе Максвелл.</p>
+					</div>
+				</li>
+			</ol>
+		</section>
+
+		<section id="contact" aria-labelledby="contact-title">
+			<h2 id="contact-title">Связаться со мной</h2>
+			<p>Быстрее всего со мной можно связаться по электронной почте.</p>
+			<p class="email"><a href="mailto:contact@ohhnate.dev">contact@ohhnate.dev</a></p>
+			<ul class="elsewhere">
+				<li><a href="https://github.com/ohhnate" rel="me">GitHub</a></li>
+				<li><a href="https://ohhnate.itch.io" rel="me">itch.io</a></li>
+				<li><a href="https://www.linkedin.com/in/samuel-fuller1/" rel="me">LinkedIn</a></li>
+			</ul>
+		</section>
+	</main>
+
+	<footer class="bottom">
+		<p>© 2026 Nate Fuller</p>
+	</footer>
+</body>
+</html>
