@@ -30,6 +30,8 @@ The non-English text was machine-drafted and should be checked by a fluent reade
 
 The hero meter has one column per month from January 2012. The build sets the column count from the current date, so rebuilding is all a new month needs. To add an era, give its `<i>` segment `--from` (the first month's column, `(year - 2012) * 12 + month`) and `--span` (how many months it covers), plus a `.meter-label` with the same `--from`. The current era has the `ongoing` class and no `--span`, so it runs to the end.
 
+The build also writes one empty `<span>` per month into each row's `.meter-gaps`. Each one paints its month's gap, and its transparent left border is the cell. Browsers round border widths down to whole device pixels, so every cell comes out exactly the same width. A gradient mask can't do that: cells drift a pixel wider, and Firefox drops whole gaps.
+
 ## When the job changes
 
 Update the hero and Experience strings in every `i18n/*.json`, the meter in `src/index.html`, the era cells in the logo (in `src/index.html` and the hand-written `404.html`), and `assets/og.png`, a language-neutral 1200x630 screenshot of the name and the meter.

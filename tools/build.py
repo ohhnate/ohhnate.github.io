@@ -110,8 +110,10 @@ def asset_version(relative: str) -> str:
 
 def shared_values(today: date) -> dict[str, str]:
     """Values that are the same on every page."""
+    months = meter_months(today)
     return {
-        "page.months": str(meter_months(today)),
+        "page.months": str(months),
+        "page.meter_gaps": "<span></span>" * months,
         "page.css": (ROOT / "styles.css").read_text(encoding="utf-8"),
         "page.js_version": asset_version("assets/site.js"),
         "page.locale_paths": json.dumps(locale_paths(), ensure_ascii=False),
