@@ -421,9 +421,10 @@ h1 {
 /* Frame meter. The figure sets --months inline: one grid column per month since January 2012. */
 
 .meter {
+	--meter-rows: repeat(4, 1.75rem) 1.5rem;
 	display: grid;
 	grid-template-columns: max-content minmax(0, 1fr);
-	grid-template-rows: repeat(4, 1.75rem) 1.5rem;
+	grid-template-rows: var(--meter-rows);
 	column-gap: 1rem;
 	row-gap: 0.25rem;
 	margin-top: clamp(3rem, 7vh, 4.5rem);
@@ -440,13 +441,25 @@ h1 {
 .meter-row-work, .meter-cells-work { grid-row: 2; }
 .meter-row-school, .meter-cells-school { grid-row: 3; }
 
+/*
+ * Every month is the same whole number of device pixels wide, at any zoom or screen scale, so cells
+ * and gaps never vary. The months' width comes from the gap boxes below; the timeline ends where the
+ * last month does, up to one device pixel per month short of the column. It is a size container for
+ * those boxes, so it can't be a row subgrid and repeats the meter's rows instead.
+ */
 .meter-timeline {
 	grid-column: 2;
 	grid-row: 1 / 6;
 	display: grid;
-	grid-template-rows: subgrid;
-	grid-template-columns: repeat(var(--months), minmax(0, 1fr));
+	grid-template-rows: var(--meter-rows);
+	row-gap: inherit;
+	grid-template-columns: repeat(var(--months), auto);
+	justify-content: start;
+	container-type: inline-size;
 }
+
+/* Labels and years hang past their month instead of widening it. */
+.meter-label, .meter-year { contain: inline-size; }
 
 .meter-label {
 	grid-column-start: var(--from);
@@ -477,29 +490,36 @@ h1 {
 .meter-cells .ongoing { grid-column: var(--from) / -1; }
 
 /*
- * One box per month cuts each row into cells, so segments and empty months share the same gaps.
- * The box paints its gap in the page color, and its transparent left border is the cell. Browsers
- * round border widths down to whole device pixels, so every cell is exactly as wide as the others
- * and the spare pixels go to the gaps. A container can't be a subgrid, so the boxes get their own
- * columns, matching the timeline's.
+ * One box per month sizes its month and cuts the row into cells, so segments and empty months share
+ * the same gaps. The box is a transparent left border, a month's share of the timeline; browsers
+ * round border widths down to whole device pixels, so every month comes out the same width. Its
+ * gap, also a border, sits over the month's right end in the page color.
  */
 .meter-gaps {
 	grid-row: 1;
 	grid-column: 1 / -1;
 	display: grid;
-	grid-template-columns: repeat(var(--months), minmax(0, 1fr));
-	container-type: inline-size;
+	grid-template-columns: subgrid;
 }
 
 .meter-gaps span {
-	border-left: calc(100cqw / var(--months) - var(--cell-gap)) solid transparent;
-	background: var(--stage) padding-box;
+	position: relative;
+	border-left: calc(100cqw / var(--months)) solid transparent;
+}
+
+.meter-gaps span::after {
+	content: "";
+	position: absolute;
+	inset-block: 0;
+	right: 0;
+	border-left: var(--cell-gap) solid var(--stage);
 }
 
 .meter-year {
 	grid-row: 5;
 	grid-column-start: var(--from);
-	padding-left: 0.375rem;
+	/* An indent rather than padding, which would still widen the month. */
+	text-indent: 0.375rem;
 	border-left: 1px solid var(--ink-soft);
 	color: var(--ink-soft);
 	white-space: nowrap;
@@ -769,7 +789,9 @@ h2 {
 }
 
 @media (max-width: 40rem) {
-	/* Below this width a month is under 2px wide, so the meter draws solid segments. */
+	/* Below this width a month is under 2px wide, so the meter fills the column with solid segments. */
+	.meter-timeline { grid-template-columns: repeat(var(--months), minmax(0, 1fr)); }
+
 	.meter-gaps { display: none; }
 
 	.meter { font-size: 0.75rem; column-gap: 0.625rem; }
@@ -779,7 +801,7 @@ h2 {
 	.meter .short { display: inline; }
 
 	/* The current era's label sits at the meter's end, where there is room for it. */
-	.meter-label-ongoing { grid-column: 1 / -1; justify-self: end; }
+	.meter-label-ongoing { grid-column: 1 / -1; justify-self: end; contain: none; }
 
 	.meter-year:nth-child(even of .meter-year) { display: none; }
 

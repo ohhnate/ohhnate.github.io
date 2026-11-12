@@ -30,7 +30,7 @@ The non-English text was machine-drafted and should be checked by a fluent reade
 
 The hero meter has one column per month from January 2012. The build sets the column count from the current date, so rebuilding is all a new month needs. To add an era, give its `<i>` segment `--from` (the first month's column, `(year - 2012) * 12 + month`) and `--span` (how many months it covers), plus a `.meter-label` with the same `--from`. The current era has the `ongoing` class and no `--span`, so it runs to the end.
 
-The build also writes one empty `<span>` per month into each row's `.meter-gaps`. Each one paints its month's gap, and its transparent left border is the cell. Browsers round border widths down to whole device pixels, so every cell comes out exactly the same width. A gradient mask can't do that: cells drift a pixel wider, and Firefox drops whole gaps.
+The build also writes one empty `<span>` per month into each row's `.meter-gaps`. Each one is a transparent border a month's share of the timeline wide, and it sizes its month's column. Browsers round border widths down to whole device pixels, so every month, cell and gap is exactly the same size at any zoom or screen scale. The cost is that the meter ends up to one device pixel per month short of the column's right edge. A gradient mask or fluid columns can't do this: cells or gaps drift a pixel wider, and Firefox drops whole gaps.
 
 ## When the job changes
 
